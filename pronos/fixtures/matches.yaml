@@ -1,0 +1,246 @@
+- model: pronos.stade
+  pk: 1
+  fields: {name: Stade de France, city: Saint-Denis}
+- model: pronos.stade
+  pk: 2
+  fields: {name: Stade Bollaert-Delelis, city: Lens}
+- model: pronos.stade
+  pk: 3
+  fields: {name: Stade de Bordeaux, city: Bordeaux}
+- model: pronos.stade
+  pk: 4
+  fields: {name: "Stade V\xE9lodrome", city: Marseille}
+- model: pronos.stade
+  pk: 5
+  fields: {name: Parc des Princes, city: Paris}
+- model: pronos.stade
+  pk: 6
+  fields: {name: Stade de Nice, city: Nice}
+- model: pronos.stade
+  pk: 7
+  fields: {name: Stade Pierre Mauroy, city: Lille}
+- model: pronos.stade
+  pk: 8
+  fields: {name: Stadium de Toulouse, city: Toulouse}
+- model: pronos.stade
+  pk: 9
+  fields: {name: Stade de Lyon, city: Lyon}
+- model: pronos.stade
+  pk: 10
+  fields: {name: Stade Geoffroy Guichard, city: Saint-Etienne}
+- model: pronos.team
+  pk: 1
+  fields: {name: Albanie, code: AL}
+- model: pronos.team
+  pk: 2
+  fields: {name: Allemagne, code: DE}
+- model: pronos.team
+  pk: 3
+  fields: {name: Angleterre, code: GB}
+- model: pronos.team
+  pk: 4
+  fields: {name: Autriche, code: AT}
+- model: pronos.team
+  pk: 5
+  fields: {name: Belgique, code: BE}
+- model: pronos.team
+  pk: 6
+  fields: {name: Croatie, code: HR}
+- model: pronos.team
+  pk: 7
+  fields: {name: Espagne, code: ES}
+- model: pronos.team
+  pk: 8
+  fields: {name: France, code: FR}
+- model: pronos.team
+  pk: 9
+  fields: {name: Hongrie, code: HU}
+- model: pronos.team
+  pk: 10
+  fields: {name: Irlande du nord, code: NIR}
+- model: pronos.team
+  pk: 11
+  fields: {name: Islande, code: IS}
+- model: pronos.team
+  pk: 12
+  fields: {name: Italie, code: IT}
+- model: pronos.team
+  pk: 13
+  fields: {name: Pays de galles, code: Wal}
+- model: pronos.team
+  pk: 14
+  fields: {name: Pologne, code: PL}
+- model: pronos.team
+  pk: 15
+  fields: {name: Portugal, code: PT}
+- model: pronos.team
+  pk: 16
+  fields: {name: "R\xE9publique d'Irlande", code: IE}
+- model: pronos.team
+  pk: 17
+  fields: {name: "R\xE9publique tch\xE8que", code: CZ}
+- model: pronos.team
+  pk: 18
+  fields: {name: Roumanie, code: RO}
+- model: pronos.team
+  pk: 19
+  fields: {name: Russie, code: RU}
+- model: pronos.team
+  pk: 20
+  fields: {name: Slovaquie, code: SK}
+- model: pronos.team
+  pk: 21
+  fields: {name: "Su\xE8de", code: SE}
+- model: pronos.team
+  pk: 22
+  fields: {name: Suisse, code: CH}
+- model: pronos.team
+  pk: 23
+  fields: {name: Turquie, code: TR}
+- model: pronos.team
+  pk: 24
+  fields: {name: Ukraine, code: UA}
+- model: pronos.match
+  pk: 1
+  fields: {team_domicile: 8, team_visitor: 18, score_domicile: 0, score_visitor: 0,
+    description: Groupe A, location: 1, stage: A, date: !!timestamp '2016-06-10 19:00:00+00:00'}
+- model: pronos.match
+  pk: 2
+  fields: {team_domicile: 1, team_visitor: 22, score_domicile: 0, score_visitor: 0,
+    description: Groupe A, location: 2, stage: A, date: !!timestamp '2016-06-11 13:00:00+00:00'}
+- model: pronos.match
+  pk: 3
+  fields: {team_domicile: 13, team_visitor: 20, score_domicile: 0, score_visitor: 0,
+    description: Groupe B, location: 3, stage: B, date: !!timestamp '2016-06-11 16:00:00+00:00'}
+- model: pronos.match
+  pk: 4
+  fields: {team_domicile: 3, team_visitor: 19, score_domicile: 0, score_visitor: 0,
+    description: Groupe B, location: 4, stage: B, date: !!timestamp '2016-06-11 19:00:00+00:00'}
+- model: pronos.match
+  pk: 5
+  fields: {team_domicile: 23, team_visitor: 6, score_domicile: 0, score_visitor: 0,
+    description: Groupe D, location: 5, stage: D, date: !!timestamp '2016-06-12 13:00:00+00:00'}
+- model: pronos.match
+  pk: 6
+  fields: {team_domicile: 14, team_visitor: 10, score_domicile: 0, score_visitor: 0,
+    description: Groupe C, location: 6, stage: C, date: !!timestamp '2016-06-12 16:00:00+00:00'}
+- model: pronos.match
+  pk: 7
+  fields: {team_domicile: 2, team_visitor: 24, score_domicile: 0, score_visitor: 0,
+    description: Groupe C, location: 7, stage: C, date: !!timestamp '2016-06-12 19:00:00+00:00'}
+- model: pronos.match
+  pk: 8
+  fields: {team_domicile: 7, team_visitor: 17, score_domicile: 0, score_visitor: 0,
+    description: Groupe D, location: 8, stage: D, date: !!timestamp '2016-06-13 13:00:00+00:00'}
+- model: pronos.match
+  pk: 9
+  fields: {team_domicile: 16, team_visitor: 21, score_domicile: 0, score_visitor: 0,
+    description: Groupe E, location: 1, stage: E, date: !!timestamp '2016-06-13 16:00:00+00:00'}
+- model: pronos.match
+  pk: 10
+  fields: {team_domicile: 5, team_visitor: 12, score_domicile: 0, score_visitor: 0,
+    description: Groupe E, location: 9, stage: E, date: !!timestamp '2016-06-13 19:00:00+00:00'}
+- model: pronos.match
+  pk: 11
+  fields: {team_domicile: 4, team_visitor: 9, score_domicile: 0, score_visitor: 0,
+    description: Groupe F, location: 3, stage: F, date: !!timestamp '2016-06-14 16:00:00+00:00'}
+- model: pronos.match
+  pk: 12
+  fields: {team_domicile: 15, team_visitor: 11, score_domicile: 0, score_visitor: 0,
+    description: Groupe F, location: 10, stage: F, date: !!timestamp '2016-06-14 19:00:00+00:00'}
+- model: pronos.match
+  pk: 13
+  fields: {team_domicile: 19, team_visitor: 20, score_domicile: 0, score_visitor: 0,
+    description: Groupe B, location: 7, stage: B, date: !!timestamp '2016-06-15 13:00:00+00:00'}
+- model: pronos.match
+  pk: 14
+  fields: {team_domicile: 18, team_visitor: 22, score_domicile: 0, score_visitor: 0,
+    description: Groupe A, location: 5, stage: A, date: !!timestamp '2016-06-15 16:00:00+00:00'}
+- model: pronos.match
+  pk: 15
+  fields: {team_domicile: 8, team_visitor: 1, score_domicile: 0, score_visitor: 0,
+    description: Groupe A, location: 4, stage: A, date: !!timestamp '2016-06-15 19:00:00+00:00'}
+- model: pronos.match
+  pk: 16
+  fields: {team_domicile: 3, team_visitor: 13, score_domicile: 0, score_visitor: 0,
+    description: Groupe B, location: 2, stage: B, date: !!timestamp '2016-06-16 13:00:00+00:00'}
+- model: pronos.match
+  pk: 17
+  fields: {team_domicile: 24, team_visitor: 10, score_domicile: 0, score_visitor: 0,
+    description: Groupe C, location: 9, stage: C, date: !!timestamp '2016-06-16 16:00:00+00:00'}
+- model: pronos.match
+  pk: 18
+  fields: {team_domicile: 2, team_visitor: 14, score_domicile: 0, score_visitor: 0,
+    description: Groupe C, location: 1, stage: C, date: !!timestamp '2016-06-16 19:00:00+00:00'}
+- model: pronos.match
+  pk: 19
+  fields: {team_domicile: 12, team_visitor: 21, score_domicile: 0, score_visitor: 0,
+    description: Groupe E, location: 8, stage: E, date: !!timestamp '2016-06-17 13:00:00+00:00'}
+- model: pronos.match
+  pk: 20
+  fields: {team_domicile: 17, team_visitor: 6, score_domicile: 0, score_visitor: 0,
+    description: Groupe D, location: 10, stage: D, date: !!timestamp '2016-06-17 16:00:00+00:00'}
+- model: pronos.match
+  pk: 21
+  fields: {team_domicile: 7, team_visitor: 23, score_domicile: 0, score_visitor: 0,
+    description: Groupe D, location: 6, stage: D, date: !!timestamp '2016-06-17 19:00:00+00:00'}
+- model: pronos.match
+  pk: 22
+  fields: {team_domicile: 5, team_visitor: 16, score_domicile: 0, score_visitor: 0,
+    description: Groupe E, location: 3, stage: E, date: !!timestamp '2016-06-18 13:00:00+00:00'}
+- model: pronos.match
+  pk: 23
+  fields: {team_domicile: 11, team_visitor: 9, score_domicile: 0, score_visitor: 0,
+    description: Groupe F, location: 4, stage: F, date: !!timestamp '2016-06-18 16:00:00+00:00'}
+- model: pronos.match
+  pk: 24
+  fields: {team_domicile: 15, team_visitor: 4, score_domicile: 0, score_visitor: 0,
+    description: Groupe F, location: 5, stage: F, date: !!timestamp '2016-06-18 19:00:00+00:00'}
+- model: pronos.match
+  pk: 25
+  fields: {team_domicile: 22, team_visitor: 8, score_domicile: 0, score_visitor: 0,
+    description: Groupe A, location: 7, stage: A, date: !!timestamp '2016-06-19 19:00:00+00:00'}
+- model: pronos.match
+  pk: 26
+  fields: {team_domicile: 18, team_visitor: 1, score_domicile: 0, score_visitor: 0,
+    description: Groupe A, location: 9, stage: A, date: !!timestamp '2016-06-19 19:00:00+00:00'}
+- model: pronos.match
+  pk: 27
+  fields: {team_domicile: 20, team_visitor: 3, score_domicile: 0, score_visitor: 0,
+    description: Groupe B, location: 10, stage: B, date: !!timestamp '2016-06-20 19:00:00+00:00'}
+- model: pronos.match
+  pk: 28
+  fields: {team_domicile: 19, team_visitor: 13, score_domicile: 0, score_visitor: 0,
+    description: Groupe B, location: 8, stage: B, date: !!timestamp '2016-06-20 19:00:00+00:00'}
+- model: pronos.match
+  pk: 29
+  fields: {team_domicile: 10, team_visitor: 2, score_domicile: 0, score_visitor: 0,
+    description: Groupe C, location: 5, stage: C, date: !!timestamp '2016-06-21 16:00:00+00:00'}
+- model: pronos.match
+  pk: 30
+  fields: {team_domicile: 24, team_visitor: 14, score_domicile: 0, score_visitor: 0,
+    description: Groupe C, location: 4, stage: C, date: !!timestamp '2016-06-21 16:00:00+00:00'}
+- model: pronos.match
+  pk: 31
+  fields: {team_domicile: 6, team_visitor: 7, score_domicile: 0, score_visitor: 0,
+    description: Groupe D, location: 3, stage: D, date: !!timestamp '2016-06-21 19:00:00+00:00'}
+- model: pronos.match
+  pk: 32
+  fields: {team_domicile: 17, team_visitor: 23, score_domicile: 0, score_visitor: 0,
+    description: Groupe D, location: 2, stage: D, date: !!timestamp '2016-06-21 19:00:00+00:00'}
+- model: pronos.match
+  pk: 33
+  fields: {team_domicile: 11, team_visitor: 4, score_domicile: 0, score_visitor: 0,
+    description: Groupe F, location: 1, stage: F, date: !!timestamp '2016-06-22 16:00:00+00:00'}
+- model: pronos.match
+  pk: 34
+  fields: {team_domicile: 9, team_visitor: 15, score_domicile: 0, score_visitor: 0,
+    description: Groupe F, location: 9, stage: F, date: !!timestamp '2016-06-22 16:00:00+00:00'}
+- model: pronos.match
+  pk: 35
+  fields: {team_domicile: 21, team_visitor: 5, score_domicile: 0, score_visitor: 0,
+    description: Groupe E, location: 6, stage: E, date: !!timestamp '2016-06-22 19:00:00+00:00'}
+- model: pronos.match
+  pk: 36
+  fields: {team_domicile: 12, team_visitor: 16, score_domicile: 0, score_visitor: 0,
+    description: Groupe E, location: 7, stage: E, date: !!timestamp '2016-06-22 19:00:00+00:00'}

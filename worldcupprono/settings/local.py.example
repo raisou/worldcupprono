@@ -1,0 +1,98 @@
+import os
+
+from .defaults import *  # noqa
+
+
+BASE_DIR = os.path.dirname(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+DEBUG = True
+
+INSTALLED_APPS += (
+    'django_jenkins',
+    'debug_toolbar',
+    'debug_panel',
+    'django_extensions'
+)
+
+MIDDLEWARE_CLASSES += (
+    'debug_panel.middleware.DebugPanelMiddleware',
+)
+
+# for django-debug-toolbar
+INTERNAL_IPS = ('127.0.0.1',)
+
+ALLOWED_HOSTS = ['127.0.0.1']
+
+SESSION_SAVE_EVERY_REQUEST = True
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'wcp',
+        'USER': 'wcp',
+        'PASSWORD': 'wcp',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
+}
+
+SECRET_KEY = '#%(&hftk*_65ru(@1hq0=!02-1kvf806)(*qflx!wxrq=(46ad'
+
+LANGUAGE_CODE = "fr-FR"
+
+TIME_ZONE = 'Europe/Paris'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/static/')
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media/')
+
+MEDIA_URL = "/media/"
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Dev only
+AUTH_PASSWORD_VALIDATORS = []
+
+# dev only for django_extensions
+GRAPH_MODELS = {
+    'all_applications': True,
+    'group_models': True,
+}
+
+# server
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+# SECURE_HSTS_SECONDS = 31536000  # 1 year
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+
+SITE_ID = 2
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s '
+                      '%(process)d %(thread)d %(message)s'
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        }
+    },
+    'loggers': {
+        '': {
+            'level': 'INFO',
+            'handlers': ['console'],
+        },
+        'django.db.backends': {
+            'level': 'ERROR',
+            'handlers': ['console'],
+            'propagate': False,
+        }
+    },
+}
