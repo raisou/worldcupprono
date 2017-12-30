@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_swagger',
     'djoser',
+    'clients',
     'boards',
     'pronos',
     'worldcupprono'
