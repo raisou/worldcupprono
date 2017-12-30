@@ -1,0 +1,2 @@
+export const SET_MESSAGE = 'SET_MESSAGE'
+export const CLEAN_MESSAGE = 'CLEAN_MESSAGE'

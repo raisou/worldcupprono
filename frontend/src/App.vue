@@ -1,10 +1,11 @@
 <template>
   <div id="app">
-    <navbar/>
+    <navbar v-if="isAuthenticated()" />
+    <message />
 
     <b-container fluid>
       <b-row>
-        <b-col cols="3">
+        <b-col cols="3" v-if="isAuthenticated()">
           <boardlist />
         </b-col>
         <b-col>
@@ -16,13 +17,19 @@
 </template>
 
 <script>
-import Boardlist from './components/Boardlist.vue'
-import Navbar from './components/Navbar.vue'
+  import Navbar from './components/Navbar.vue'
+  import Message from './components/Message.vue'
+  import Boardlist from './components/Boardlist.vue'
 
-export default {
-  name: 'app',
-  components: { Navbar, Boardlist }
-}
+  export default {
+    name: 'app',
+    components: { Navbar, Boardlist, Message },
+    methods: {
+      isAuthenticated () {
+        return true
+      }
+    }
+  }
 </script>
 
 <style>
