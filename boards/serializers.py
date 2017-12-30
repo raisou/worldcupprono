@@ -1,6 +1,5 @@
 from rest_framework import serializers
-
-from clients.serializers import UserSerializer
+from djoser.serializers import UserSerializer
 
 from .models import Board
 

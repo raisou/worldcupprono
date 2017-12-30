@@ -1,13 +1,10 @@
 from django.conf.urls import url, include
 
 from rest_framework import routers
-from rest_framework_jwt.views import (obtain_jwt_token, refresh_jwt_token)
 
 from boards.views import BoardViewSet
-from pronos.views import MatchListView
-from pronos.views import TeamListView
-from pronos.views import StadeListView
-from pronos.views import PronoViewSet
+from pronos.views import (
+    MatchListView, TeamListView, StadeListView, PronoViewSet)
 
 
 # -- REST Router
@@ -23,7 +20,6 @@ urlpatterns = [
     url(r'^matchs/$', MatchListView.as_view(), name="matchs"),
     url(r'^stades/$', StadeListView.as_view(), name="stades"),
 
-    url(r'^token-auth/', obtain_jwt_token),
-    url(r'^token-refresh/', refresh_jwt_token),
-    url(r'^auth/', include('djoser.urls'))
+    url(r'^auth/', include('djoser.urls')),
+    url(r'^auth/', include('djoser.urls.jwt'))
 ]

@@ -1,39 +1,19 @@
-import axios from "axios";
+import axios from 'axios'
 
 export default {
-  addAuthorizationHeader(config) {
+  addAuthorizationHeader (token) {
     return {
-      ...config,
-      headers: { Authorization: `JWT ${config.token}` }
-    };
+      headers: { Authorization: `JWT ${token}` }
+    }
   },
-  all(config) {
-    return axios.get("/api/boards/", this.addAuthorizationHeader(config));
+  all (state) {
+    return axios.get('/api/boards/', this.addAuthorizationHeader(state.token))
   },
-  create(resource, config) {
+  create (board, state) {
     return axios.post(
-      "/api/boards/",
-      resource,
-      this.addAuthorizationHeader(config)
-    );
-  },
-  read(resource, config) {
-    return axios.get(
-      "/api/boards/" + resource.id + "/",
-      this.addAuthorizationHeader(config)
-    );
-  },
-  update(resource, config) {
-    return axios.put(
-      "/api/boards/" + resource.id + "/",
-      resource,
-      this.addAuthorizationHeader(config)
-    );
-  },
-  delete(resource, config) {
-    return axios.delete(
-      "/api/boards/" + resource.id + "/",
-      this.addAuthorizationHeader(config)
-    );
+      '/api/boards/',
+      {name: board},
+      this.addAuthorizationHeader(state.token)
+    )
   }
-};
+}

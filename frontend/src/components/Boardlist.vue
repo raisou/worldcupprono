@@ -1,43 +1,51 @@
 <template>
-  <div class="sidebar">
-    <div id="title" class="text-muted">
+  <div class="card">
+    <div class="card-header text-muted">
       Tableaux
     </div>
     <b-list-group>
-      <b-list-group-item href="#some-link">Awesome link</b-list-group-item>
-      <b-list-group-item href="#" active>Link with active state</b-list-group-item>
-      <b-list-group-item href="#">Action links are easy</b-list-group-item>
+      <b-list-group-item v-for="board in boards" :key="board.id" :href="'#/board/' + board.id">
+        <span v-if="board.is_owner">+</span>
+        {{board.name}}
+      </b-list-group-item>
       <b-list-group-item>
-        <b-form-input v-model="newBoard"
+        <b-form-input
           type="text"
-          placeholder="Enter your name"></b-form-input>
-        <p>Value: {{ newBoard }}</p>
+          placeholder="Ajouter un tableau"
+          v-model="newBoard"
+          @keyup.enter.native="createBoard">
+        </b-form-input>
       </b-list-group-item>
     </b-list-group>
   </div>
 </template>
 
 <script>
+import {mapState} from 'vuex'
+
 export default {
-  name: 'Boardlist',
+  name: 'BoardList',
   data () {
     return {
       newBoard: ''
     }
+  },
+  computed: mapState([
+    'boards'
+  ]),
+  methods: {
+    createBoard: function () {
+      this.$store.dispatch('saveBoard', this.newBoard)
+    }
+  },
+  beforeMount () {
+    this.$store.dispatch('getBoards')
   }
 }
 </script>
 
 <style scoped>
-  .sidebar {
-    padding: 15px;
-    background-color: rgba(0,0,0,.03);
-    border: 1px solid rgba(0,0,0,.125);
-  }
-  .sidebar #title {
-    margin-bottom: 15px;
-  }
-  .sidebar .list-group-item {
+  .list-group-item {
     border: none;
   }
 </style>

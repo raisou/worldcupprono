@@ -12,14 +12,14 @@
 
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
-        <b-nav-item href="#">Mes pronos</b-nav-item>
+        <b-nav-item href="#dashboard">Mes pronos</b-nav-item>
         <b-nav-item-dropdown right>
           <!-- Using button-content slot -->
           <template slot="button-content">
-            <em>Prénom Nom</em>
+            <em>{{ me.username }}</em>
           </template>
-          <b-dropdown-item href="#">Mon compte</b-dropdown-item>
-          <b-dropdown-item href="#">Déconnection</b-dropdown-item>
+          <b-dropdown-item @click="redirectAccount()">Mon compte</b-dropdown-item>
+          <b-dropdown-item @click="logout()">Déconnection</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
 
@@ -28,8 +28,26 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
+
 export default {
-  name: 'Navbar'
+  name: 'Navbar',
+  computed: mapState([
+    'me',
+    'authenticated'
+  ]),
+  methods: {
+    logout: function () {
+      this.$store.dispatch('logout')
+      this.$router.push('login')
+    },
+    redirectAccount: function () {
+      this.$router.push('account')
+    }
+  },
+  beforeMount () {
+    this.$store.dispatch('getUserInfo')
+  }
 }
 </script>
 

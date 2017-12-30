@@ -1,2 +1,8 @@
+export const LOGIN = 'LOGIN'
+export const LOGOUT = 'LOGOUT'
+export const SET_TOKEN = 'SET_TOKEN'
+export const SET_USER_INFO = 'SET_USER_INFO'
+export const SET_BOARD = 'SET_BOARD'
+export const SET_BOARDS = 'SET_BOARDS'
 export const SET_MESSAGE = 'SET_MESSAGE'
 export const CLEAN_MESSAGE = 'CLEAN_MESSAGE'
