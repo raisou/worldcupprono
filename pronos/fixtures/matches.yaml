@@ -103,144 +103,144 @@
 - model: pronos.match
   pk: 1
   fields: {team_domicile: 8, team_visitor: 18, score_domicile: 0, score_visitor: 0,
-    description: Groupe A, location: 1, stage: A, date: !!timestamp '2016-06-10 19:00:00+00:00'}
+    description: Groupe A, location: 1, stage: A, date: '2016-06-10 19:00:00+00:00'}
 - model: pronos.match
   pk: 2
   fields: {team_domicile: 1, team_visitor: 22, score_domicile: 0, score_visitor: 0,
-    description: Groupe A, location: 2, stage: A, date: !!timestamp '2016-06-11 13:00:00+00:00'}
+    description: Groupe A, location: 2, stage: A, date: '2016-06-11 13:00:00+00:00'}
 - model: pronos.match
   pk: 3
   fields: {team_domicile: 13, team_visitor: 20, score_domicile: 0, score_visitor: 0,
-    description: Groupe B, location: 3, stage: B, date: !!timestamp '2016-06-11 16:00:00+00:00'}
+    description: Groupe B, location: 3, stage: B, date: '2016-06-11 16:00:00+00:00'}
 - model: pronos.match
   pk: 4
   fields: {team_domicile: 3, team_visitor: 19, score_domicile: 0, score_visitor: 0,
-    description: Groupe B, location: 4, stage: B, date: !!timestamp '2016-06-11 19:00:00+00:00'}
+    description: Groupe B, location: 4, stage: B, date: '2016-06-11 19:00:00+00:00'}
 - model: pronos.match
   pk: 5
   fields: {team_domicile: 23, team_visitor: 6, score_domicile: 0, score_visitor: 0,
-    description: Groupe D, location: 5, stage: D, date: !!timestamp '2016-06-12 13:00:00+00:00'}
+    description: Groupe D, location: 5, stage: D, date: '2016-06-12 13:00:00+00:00'}
 - model: pronos.match
   pk: 6
   fields: {team_domicile: 14, team_visitor: 10, score_domicile: 0, score_visitor: 0,
-    description: Groupe C, location: 6, stage: C, date: !!timestamp '2016-06-12 16:00:00+00:00'}
+    description: Groupe C, location: 6, stage: C, date: '2016-06-12 16:00:00+00:00'}
 - model: pronos.match
   pk: 7
   fields: {team_domicile: 2, team_visitor: 24, score_domicile: 0, score_visitor: 0,
-    description: Groupe C, location: 7, stage: C, date: !!timestamp '2016-06-12 19:00:00+00:00'}
+    description: Groupe C, location: 7, stage: C, date: '2016-06-12 19:00:00+00:00'}
 - model: pronos.match
   pk: 8
   fields: {team_domicile: 7, team_visitor: 17, score_domicile: 0, score_visitor: 0,
-    description: Groupe D, location: 8, stage: D, date: !!timestamp '2016-06-13 13:00:00+00:00'}
+    description: Groupe D, location: 8, stage: D, date: '2016-06-13 13:00:00+00:00'}
 - model: pronos.match
   pk: 9
   fields: {team_domicile: 16, team_visitor: 21, score_domicile: 0, score_visitor: 0,
-    description: Groupe E, location: 1, stage: E, date: !!timestamp '2016-06-13 16:00:00+00:00'}
+    description: Groupe E, location: 1, stage: E, date: '2016-06-13 16:00:00+00:00'}
 - model: pronos.match
   pk: 10
   fields: {team_domicile: 5, team_visitor: 12, score_domicile: 0, score_visitor: 0,
-    description: Groupe E, location: 9, stage: E, date: !!timestamp '2016-06-13 19:00:00+00:00'}
+    description: Groupe E, location: 9, stage: E, date: '2016-06-13 19:00:00+00:00'}
 - model: pronos.match
   pk: 11
   fields: {team_domicile: 4, team_visitor: 9, score_domicile: 0, score_visitor: 0,
-    description: Groupe F, location: 3, stage: F, date: !!timestamp '2016-06-14 16:00:00+00:00'}
+    description: Groupe F, location: 3, stage: F, date: '2016-06-14 16:00:00+00:00'}
 - model: pronos.match
   pk: 12
   fields: {team_domicile: 15, team_visitor: 11, score_domicile: 0, score_visitor: 0,
-    description: Groupe F, location: 10, stage: F, date: !!timestamp '2016-06-14 19:00:00+00:00'}
+    description: Groupe F, location: 10, stage: F, date: '2016-06-14 19:00:00+00:00'}
 - model: pronos.match
   pk: 13
   fields: {team_domicile: 19, team_visitor: 20, score_domicile: 0, score_visitor: 0,
-    description: Groupe B, location: 7, stage: B, date: !!timestamp '2016-06-15 13:00:00+00:00'}
+    description: Groupe B, location: 7, stage: B, date: '2016-06-15 13:00:00+00:00'}
 - model: pronos.match
   pk: 14
   fields: {team_domicile: 18, team_visitor: 22, score_domicile: 0, score_visitor: 0,
-    description: Groupe A, location: 5, stage: A, date: !!timestamp '2016-06-15 16:00:00+00:00'}
+    description: Groupe A, location: 5, stage: A, date: '2016-06-15 16:00:00+00:00'}
 - model: pronos.match
   pk: 15
   fields: {team_domicile: 8, team_visitor: 1, score_domicile: 0, score_visitor: 0,
-    description: Groupe A, location: 4, stage: A, date: !!timestamp '2016-06-15 19:00:00+00:00'}
+    description: Groupe A, location: 4, stage: A, date: '2016-06-15 19:00:00+00:00'}
 - model: pronos.match
   pk: 16
   fields: {team_domicile: 3, team_visitor: 13, score_domicile: 0, score_visitor: 0,
-    description: Groupe B, location: 2, stage: B, date: !!timestamp '2016-06-16 13:00:00+00:00'}
+    description: Groupe B, location: 2, stage: B, date: '2016-06-16 13:00:00+00:00'}
 - model: pronos.match
   pk: 17
   fields: {team_domicile: 24, team_visitor: 10, score_domicile: 0, score_visitor: 0,
-    description: Groupe C, location: 9, stage: C, date: !!timestamp '2016-06-16 16:00:00+00:00'}
+    description: Groupe C, location: 9, stage: C, date: '2016-06-16 16:00:00+00:00'}
 - model: pronos.match
   pk: 18
   fields: {team_domicile: 2, team_visitor: 14, score_domicile: 0, score_visitor: 0,
-    description: Groupe C, location: 1, stage: C, date: !!timestamp '2016-06-16 19:00:00+00:00'}
+    description: Groupe C, location: 1, stage: C, date: '2016-06-16 19:00:00+00:00'}
 - model: pronos.match
   pk: 19
   fields: {team_domicile: 12, team_visitor: 21, score_domicile: 0, score_visitor: 0,
-    description: Groupe E, location: 8, stage: E, date: !!timestamp '2016-06-17 13:00:00+00:00'}
+    description: Groupe E, location: 8, stage: E, date: '2016-06-17 13:00:00+00:00'}
 - model: pronos.match
   pk: 20
   fields: {team_domicile: 17, team_visitor: 6, score_domicile: 0, score_visitor: 0,
-    description: Groupe D, location: 10, stage: D, date: !!timestamp '2016-06-17 16:00:00+00:00'}
+    description: Groupe D, location: 10, stage: D, date: '2016-06-17 16:00:00+00:00'}
 - model: pronos.match
   pk: 21
   fields: {team_domicile: 7, team_visitor: 23, score_domicile: 0, score_visitor: 0,
-    description: Groupe D, location: 6, stage: D, date: !!timestamp '2016-06-17 19:00:00+00:00'}
+    description: Groupe D, location: 6, stage: D, date: '2016-06-17 19:00:00+00:00'}
 - model: pronos.match
   pk: 22
   fields: {team_domicile: 5, team_visitor: 16, score_domicile: 0, score_visitor: 0,
-    description: Groupe E, location: 3, stage: E, date: !!timestamp '2016-06-18 13:00:00+00:00'}
+    description: Groupe E, location: 3, stage: E, date: '2016-06-18 13:00:00+00:00'}
 - model: pronos.match
   pk: 23
   fields: {team_domicile: 11, team_visitor: 9, score_domicile: 0, score_visitor: 0,
-    description: Groupe F, location: 4, stage: F, date: !!timestamp '2016-06-18 16:00:00+00:00'}
+    description: Groupe F, location: 4, stage: F, date: '2016-06-18 16:00:00+00:00'}
 - model: pronos.match
   pk: 24
   fields: {team_domicile: 15, team_visitor: 4, score_domicile: 0, score_visitor: 0,
-    description: Groupe F, location: 5, stage: F, date: !!timestamp '2016-06-18 19:00:00+00:00'}
+    description: Groupe F, location: 5, stage: F, date: '2016-06-18 19:00:00+00:00'}
 - model: pronos.match
   pk: 25
   fields: {team_domicile: 22, team_visitor: 8, score_domicile: 0, score_visitor: 0,
-    description: Groupe A, location: 7, stage: A, date: !!timestamp '2016-06-19 19:00:00+00:00'}
+    description: Groupe A, location: 7, stage: A, date: '2016-06-19 19:00:00+00:00'}
 - model: pronos.match
   pk: 26
   fields: {team_domicile: 18, team_visitor: 1, score_domicile: 0, score_visitor: 0,
-    description: Groupe A, location: 9, stage: A, date: !!timestamp '2016-06-19 19:00:00+00:00'}
+    description: Groupe A, location: 9, stage: A, date: '2016-06-19 19:00:00+00:00'}
 - model: pronos.match
   pk: 27
   fields: {team_domicile: 20, team_visitor: 3, score_domicile: 0, score_visitor: 0,
-    description: Groupe B, location: 10, stage: B, date: !!timestamp '2016-06-20 19:00:00+00:00'}
+    description: Groupe B, location: 10, stage: B, date: '2016-06-20 19:00:00+00:00'}
 - model: pronos.match
   pk: 28
   fields: {team_domicile: 19, team_visitor: 13, score_domicile: 0, score_visitor: 0,
-    description: Groupe B, location: 8, stage: B, date: !!timestamp '2016-06-20 19:00:00+00:00'}
+    description: Groupe B, location: 8, stage: B, date: '2016-06-20 19:00:00+00:00'}
 - model: pronos.match
   pk: 29
   fields: {team_domicile: 10, team_visitor: 2, score_domicile: 0, score_visitor: 0,
-    description: Groupe C, location: 5, stage: C, date: !!timestamp '2016-06-21 16:00:00+00:00'}
+    description: Groupe C, location: 5, stage: C, date: '2016-06-21 16:00:00+00:00'}
 - model: pronos.match
   pk: 30
   fields: {team_domicile: 24, team_visitor: 14, score_domicile: 0, score_visitor: 0,
-    description: Groupe C, location: 4, stage: C, date: !!timestamp '2016-06-21 16:00:00+00:00'}
+    description: Groupe C, location: 4, stage: C, date: '2016-06-21 16:00:00+00:00'}
 - model: pronos.match
   pk: 31
   fields: {team_domicile: 6, team_visitor: 7, score_domicile: 0, score_visitor: 0,
-    description: Groupe D, location: 3, stage: D, date: !!timestamp '2016-06-21 19:00:00+00:00'}
+    description: Groupe D, location: 3, stage: D, date: '2016-06-21 19:00:00+00:00'}
 - model: pronos.match
   pk: 32
   fields: {team_domicile: 17, team_visitor: 23, score_domicile: 0, score_visitor: 0,
-    description: Groupe D, location: 2, stage: D, date: !!timestamp '2016-06-21 19:00:00+00:00'}
+    description: Groupe D, location: 2, stage: D, date: '2016-06-21 19:00:00+00:00'}
 - model: pronos.match
   pk: 33
   fields: {team_domicile: 11, team_visitor: 4, score_domicile: 0, score_visitor: 0,
-    description: Groupe F, location: 1, stage: F, date: !!timestamp '2016-06-22 16:00:00+00:00'}
+    description: Groupe F, location: 1, stage: F, date: '2016-06-22 16:00:00+00:00'}
 - model: pronos.match
   pk: 34
   fields: {team_domicile: 9, team_visitor: 15, score_domicile: 0, score_visitor: 0,
-    description: Groupe F, location: 9, stage: F, date: !!timestamp '2016-06-22 16:00:00+00:00'}
+    description: Groupe F, location: 9, stage: F, date: '2016-06-22 16:00:00+00:00'}
 - model: pronos.match
   pk: 35
   fields: {team_domicile: 21, team_visitor: 5, score_domicile: 0, score_visitor: 0,
-    description: Groupe E, location: 6, stage: E, date: !!timestamp '2016-06-22 19:00:00+00:00'}
+    description: Groupe E, location: 6, stage: E, date: '2016-06-22 19:00:00+00:00'}
 - model: pronos.match
   pk: 36
   fields: {team_domicile: 12, team_visitor: 16, score_domicile: 0, score_visitor: 0,
-    description: Groupe E, location: 7, stage: E, date: !!timestamp '2016-06-22 19:00:00+00:00'}
+    description: Groupe E, location: 7, stage: E, date: '2016-06-22 19:00:00+00:00'}
