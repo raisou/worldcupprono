@@ -3,16 +3,6 @@ from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 
 
-class Stade(models.Model):
-    name = models.CharField(
-        max_length=100, verbose_name="Nom du stade", unique=True)
-    city = models.CharField(
-        max_length=100, verbose_name="Ville", unique=True)
-
-    def __str__(self):
-        return self.name
-
-
 class Team(models.Model):
     name = models.CharField(max_length=100, verbose_name="Pays", unique=True)
     code = models.CharField(
@@ -22,7 +12,7 @@ class Team(models.Model):
         return self.name
 
     class Meta:
-        ordering = ['-name']
+        ordering = ['name']
 
     @property
     def meta(self):
@@ -45,6 +35,9 @@ class Match(models.Model):
         ("D", "Groupe D"),
         ("E", "Groupe E"),
         ("F", "Groupe F"),
+        ("G", "Groupe G"),
+        ("H", "Groupe H"),
+        ("HF", "Huitième de finale"),
         ("QF", "Quart de finale"),
         ("SF", "Demi finale"),
         ("FI", "Finale")
@@ -60,22 +53,18 @@ class Match(models.Model):
         max_length=150,
         verbose_name="Equipe exterieur",
         related_name="as_visitor")
-    score_domicile = models.IntegerField(blank=True, default=0)
-    score_visitor = models.IntegerField(blank=True, default=0)
-    description = models.CharField(max_length=255, verbose_name="Description")
-    location = models.ForeignKey(Stade)
-    stage = models.CharField(max_length=1, choices=STAGE_CHOICES)
-    date = models.DateTimeField(
-        verbose_name="Date du match",
-        db_index=True)
+    score_domicile = models.IntegerField(blank=True, null=True)
+    score_visitor = models.IntegerField(blank=True, null=True)
+    stage = models.CharField(max_length=2, choices=STAGE_CHOICES)
+    date = models.DateTimeField(verbose_name="Date du match", db_index=True)
     pronos = models.ManyToManyField(User, through='Prono')
 
     def __str__(self):
         return "{} - {} vs {}".format(
-            self.description, self.team_domicile, self.team_visitor)
+            self.get_stage_display(), self.team_domicile, self.team_visitor)
 
     class Meta:
-        ordering = ['-date']
+        ordering = ['date']
 
     @property
     def meta(self):

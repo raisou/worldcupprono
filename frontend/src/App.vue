@@ -36,4 +36,8 @@
 </script>
 
 <style>
+.flag-icon {
+  border-radius: 15px;
+  font-size: 30px;
+}
 </style>

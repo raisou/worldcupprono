@@ -3,8 +3,7 @@ from django.conf.urls import url, include
 from rest_framework import routers
 
 from boards.views import BoardViewSet
-from pronos.views import (
-    MatchListView, TeamListView, StadeListView, PronoViewSet)
+from pronos.views import (MatchListView, TeamListView, PronoViewSet)
 
 
 # -- REST Router
@@ -18,7 +17,6 @@ urlpatterns = [
 
     url(r'^teams/$', TeamListView.as_view(), name="teams"),
     url(r'^matchs/$', MatchListView.as_view(), name="matchs"),
-    url(r'^stades/$', StadeListView.as_view(), name="stades"),
 
     url(r'^auth/', include('djoser.urls')),
     url(r'^auth/', include('djoser.urls.jwt'))

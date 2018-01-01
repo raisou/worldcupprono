@@ -1,13 +1,6 @@
 from django.contrib import admin
 
-from .models import (Match, Team, Prono, Stade)
-
-
-@admin.register(Stade)
-class StadeAdmin(admin.ModelAdmin):
-    list_display = ('name', 'city')
-    search_fields = ('name', 'city')
-    list_per_page = 20
+from .models import (Match, Team, Prono)
 
 
 @admin.register(Team)
@@ -20,7 +13,8 @@ class TeamAdmin(admin.ModelAdmin):
 @admin.register(Match)
 class MatchAdmin(admin.ModelAdmin):
     list_display = (
-        '__str__', 'location', 'date', 'score_domicile', 'score_visitor')
+        '__str__', 'date', 'score_domicile', 'score_visitor')
+    list_filter = ('stage', )
     search_fields = ('team_domicile__name', 'team_visitor__name')
     list_per_page = 20
 

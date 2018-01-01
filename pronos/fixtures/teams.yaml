@@ -1,72 +1,96 @@
 - model: pronos.team
   pk: 1
-  fields: {name: Albanie, code: AL}
+  fields: {name: "\xC9gypte", code: EG}
 - model: pronos.team
   pk: 2
-  fields: {name: Allemagne, code: DE}
-- model: pronos.team
-  pk: 3
-  fields: {name: Angleterre, code: GB}
-- model: pronos.team
-  pk: 4
-  fields: {name: Autriche, code: AT}
-- model: pronos.team
-  pk: 5
-  fields: {name: Belgique, code: BE}
-- model: pronos.team
-  pk: 6
-  fields: {name: Croatie, code: HR}
-- model: pronos.team
-  pk: 7
-  fields: {name: Espagne, code: ES}
-- model: pronos.team
-  pk: 8
-  fields: {name: France, code: FR}
-- model: pronos.team
-  pk: 9
-  fields: {name: Hongrie, code: HU}
-- model: pronos.team
-  pk: 10
-  fields: {name: Irlande du nord, code: NIR}
-- model: pronos.team
-  pk: 11
-  fields: {name: Islande, code: IS}
-- model: pronos.team
-  pk: 12
-  fields: {name: Italie, code: IT}
-- model: pronos.team
-  pk: 13
-  fields: {name: Pays de galles, code: Wal}
-- model: pronos.team
-  pk: 14
-  fields: {name: Pologne, code: PL}
-- model: pronos.team
-  pk: 15
-  fields: {name: Portugal, code: PT}
-- model: pronos.team
-  pk: 16
-  fields: {name: "R\xE9publique d'Irlande", code: IE}
-- model: pronos.team
-  pk: 17
-  fields: {name: "R\xE9publique tch\xE8que", code: CZ}
-- model: pronos.team
-  pk: 18
-  fields: {name: Roumanie, code: RO}
-- model: pronos.team
-  pk: 19
   fields: {name: Russie, code: RU}
 - model: pronos.team
-  pk: 20
-  fields: {name: Slovaquie, code: SK}
+  pk: 3
+  fields: {name: Arabie saoudite, code: SA}
 - model: pronos.team
-  pk: 21
-  fields: {name: "Su\xE8de", code: SE}
+  pk: 4
+  fields: {name: Uruguay, code: UY}
 - model: pronos.team
-  pk: 22
+  pk: 5
+  fields: {name: Iran, code: IR}
+- model: pronos.team
+  pk: 6
+  fields: {name: Maroc, code: MA}
+- model: pronos.team
+  pk: 7
+  fields: {name: Portugal, code: PT}
+- model: pronos.team
+  pk: 8
+  fields: {name: Espagne, code: ES}
+- model: pronos.team
+  pk: 9
+  fields: {name: Australie, code: AU}
+- model: pronos.team
+  pk: 10
+  fields: {name: Danemark, code: DK}
+- model: pronos.team
+  pk: 11
+  fields: {name: France, code: FR}
+- model: pronos.team
+  pk: 12
+  fields: {name: "P\xE9rou", code: PE}
+- model: pronos.team
+  pk: 13
+  fields: {name: Argentine, code: AR}
+- model: pronos.team
+  pk: 14
+  fields: {name: Croatie, code: HR}
+- model: pronos.team
+  pk: 15
+  fields: {name: Islande, code: IS}
+- model: pronos.team
+  pk: 16
+  fields: {name: Nigeria, code: NG}
+- model: pronos.team
+  pk: 17
+  fields: {name: "Br\xE9sil", code: BR}
+- model: pronos.team
+  pk: 18
+  fields: {name: Costa Rica, code: CR}
+- model: pronos.team
+  pk: 19
   fields: {name: Suisse, code: CH}
 - model: pronos.team
+  pk: 20
+  fields: {name: Serbie, code: RS}
+- model: pronos.team
+  pk: 21
+  fields: {name: Allemagne, code: DE}
+- model: pronos.team
+  pk: 22
+  fields: {name: "Cor\xE9e du sud", code: KR}
+- model: pronos.team
   pk: 23
-  fields: {name: Turquie, code: TR}
+  fields: {name: Mexique, code: MX}
 - model: pronos.team
   pk: 24
-  fields: {name: Ukraine, code: UA}
+  fields: {name: "Su\xE8de", code: SE}
+- model: pronos.team
+  pk: 25
+  fields: {name: Belgique, code: BE}
+- model: pronos.team
+  pk: 26
+  fields: {name: Angleterre, code: EN}
+- model: pronos.team
+  pk: 27
+  fields: {name: Panama, code: PA}
+- model: pronos.team
+  pk: 28
+  fields: {name: Tunisie, code: TN}
+- model: pronos.team
+  pk: 29
+  fields: {name: Colombie, code: CO}
+- model: pronos.team
+  pk: 30
+  fields: {name: Japon, code: JP}
+- model: pronos.team
+  pk: 31
+  fields: {name: Pologne, code: PL}
+- model: pronos.team
+  pk: 32
+  fields: {name: "S\xE9n\xE9gal", code: SN}

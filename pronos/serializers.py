@@ -1,16 +1,6 @@
 from rest_framework import serializers
 
-from .models import Match
-from .models import Team
-from .models import Prono
-from .models import Stade
-
-
-class StadeSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Stade
-        fields = ('id', 'name', 'city')
+from .models import (Match, Team, Prono)
 
 
 class TeamSerializer(serializers.ModelSerializer):
@@ -33,7 +23,6 @@ class PronoSerializer(serializers.ModelSerializer):
 class MatchSerializer(serializers.ModelSerializer):
     team_domicile = TeamSerializer()
     team_visitor = TeamSerializer()
-    location = StadeSerializer()
     score_domicile = serializers.SerializerMethodField()
     score_visitor = serializers.SerializerMethodField()
     pronos = PronoSerializer(source='users', many=True)
@@ -45,9 +34,7 @@ class MatchSerializer(serializers.ModelSerializer):
             'pronos',
             'team_domicile',
             'team_visitor',
-            'description',
-            'stage',
-            'score_domicile', 'score_visitor', 'location', 'date')
+            'stage', 'score_domicile', 'score_visitor', 'date')
 
     def get_score_domicile(self, obj):
         user = self.context['request'].user

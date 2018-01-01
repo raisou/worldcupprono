@@ -7,7 +7,7 @@ class Command(BaseCommand):
     help = "[DANGER] Reset database and load demo data into database"
 
     BASE_FIXTURES = (
-        "sites matchs teams stades"
+        "sites teams matchs"
     )
     BASE_FIXTURES_DEMO = (
         "test_boards test_users"
