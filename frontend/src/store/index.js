@@ -11,6 +11,7 @@ export default new Vuex.Store({
     authenticated: false,
     message: '',
     boards: [],
+    matchs: [],
     token: null,
     me: {
       email: null,

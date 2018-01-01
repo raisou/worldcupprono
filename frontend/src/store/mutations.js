@@ -17,6 +17,9 @@ export default {
   [types.SET_BOARDS] (state, { boards }) {
     state.boards = boards
   },
+  [types.SET_MATCHS] (state, { matchs }) {
+    state.matchs = matchs
+  },
   [types.SET_MESSAGE] (state, { message }) {
     state.message = message
   },

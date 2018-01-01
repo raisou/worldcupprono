@@ -1,6 +1,7 @@
 import User from '../api/user'
 import Auth from '../api/auth'
 import Board from '../api/board'
+import Prono from '../api/prono'
 import router from '../router'
 import * as types from './mutation-types'
 
@@ -52,6 +53,19 @@ export const getBoards = ({ commit, state }) => {
       const boards = response.data
       commit(types.SET_BOARDS, { boards })
       return boards
+    })
+  }
+  return Promise.resolve([])
+}
+
+// Prono
+
+export const getMatchs = ({ commit, state }) => {
+  if (state.authenticated) {
+    return Prono.getMatchs(state).then(response => {
+      const matchs = response.data
+      commit(types.SET_MATCHS, { matchs })
+      return matchs
     })
   }
   return Promise.resolve([])

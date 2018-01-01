@@ -9,9 +9,21 @@ import 'babel-polyfill'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'flag-icon-css/css/flag-icon.css'
+import lodash from 'lodash'
 
 Vue.use(BootstrapVue)
+Vue.prototype.$_ = lodash
 Vue.config.productionTip = false
+
+// filters
+Vue.filter('lower', function (value) {
+  if (!value) return ''
+  return value.toLowerCase()
+})
+
+Vue.filter('default_if_null', function (value, arg) {
+  return value || arg
+})
 
 /* eslint-disable no-new */
 new Vue({

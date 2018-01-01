@@ -3,7 +3,7 @@
 
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
 
-    <b-navbar-brand href="#">Worldcuppronos</b-navbar-brand>
+    <b-navbar-brand @click="redirect('home')">Worldcuppronos</b-navbar-brand>
 
     <b-collapse is-nav id="nav_collapse">
 
@@ -12,13 +12,13 @@
 
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
-        <b-nav-item href="#dashboard">Mes pronos</b-nav-item>
+        <b-nav-item @click="redirect('dashboard')">Mes pronos</b-nav-item>
         <b-nav-item-dropdown right>
           <!-- Using button-content slot -->
           <template slot="button-content">
             <em>{{ me.username }}</em>
           </template>
-          <b-dropdown-item @click="redirectAccount()">Mon compte</b-dropdown-item>
+          <b-dropdown-item @click="redirect('account')">Mon compte</b-dropdown-item>
           <b-dropdown-item @click="logout()">Déconnection</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
@@ -41,8 +41,8 @@ export default {
       this.$store.dispatch('logout')
       this.$router.push('login')
     },
-    redirectAccount: function () {
-      this.$router.push('account')
+    redirect: function (redirectUrl) {
+      this.$router.push(redirectUrl)
     }
   },
   beforeMount () {
