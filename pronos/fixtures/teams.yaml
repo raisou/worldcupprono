@@ -75,7 +75,7 @@
   fields: {name: Belgique, code: BE}
 - model: pronos.team
   pk: 26
-  fields: {name: Angleterre, code: EN}
+  fields: {name: Angleterre, code: GB}
 - model: pronos.team
   pk: 27
   fields: {name: Panama, code: PA}
