@@ -1,15 +1,17 @@
 <template>
-  <b-col cols="6">
+  <b-col cols="12" xl="6">
     <div class="card">
       <div class="card-header">
         Groupe {{ name }}
       </div>
-      <div class="card-body">
-        <match v-for="match in filterMatchByGroup(matchs)"
-               :key="match.id"
-               :match="match">
-        </match>
-      </div>
+      <table class="table table-hover">
+        <tbody>
+          <match v-for="match in filterMatchByGroup(matchs)"
+                 :key="match.id"
+                 :match="match">
+          </match>
+        </tbody>
+      </table>
     </div>
   </b-col>
 </template>

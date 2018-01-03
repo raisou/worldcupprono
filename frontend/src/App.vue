@@ -5,10 +5,10 @@
 
     <b-container fluid>
       <b-row>
-        <b-col cols="3" v-if="authenticated">
+        <b-col cols="12" sm="3" v-if="authenticated">
           <boardlist />
         </b-col>
-        <b-col>
+        <b-col cols="12" sm="9">
           <router-view />
         </b-col>
       </b-row>
@@ -38,6 +38,6 @@
 <style>
   .flag-icon {
     border-radius: 15px;
-    font-size: 20px;
+    font-size: 28px;
   }
 </style>

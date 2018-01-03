@@ -45,6 +45,9 @@ export default {
 </script>
 
 <style scoped>
+  .card {
+    margin-bottom: 15px;
+  }
   .list-group-item {
     border: none;
   }
