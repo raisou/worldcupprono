@@ -41,8 +41,8 @@ export default {
       this.$store.dispatch('logout')
       this.$router.push('login')
     },
-    redirect: function (redirectUrl) {
-      this.$router.push(redirectUrl)
+    redirect: function (redirectName) {
+      this.$router.push({ name: redirectName })
     }
   },
   beforeMount () {

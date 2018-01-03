@@ -15,5 +15,11 @@ export default {
       {name: board},
       this.addAuthorizationHeader(state.token)
     )
+  },
+  get (boardId, state) {
+    return axios.get(
+      '/api/boards/' + boardId + '/',
+      this.addAuthorizationHeader(state.token)
+    )
   }
 }

@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 from worldcupprono.permissions import GlobalUserPermission
 
 from .permissions import BoardPermission
-from .serializers import BoardSerializer
+from .serializers import (BoardSerializer, BoardListSerializer)
 from .models import Board
 
 
@@ -17,6 +17,11 @@ class BoardViewSet(viewsets.ModelViewSet):
     permission_classes = (GlobalUserPermission, BoardPermission)
     serializer_class = BoardSerializer
     queryset = Board.objects.all()
+
+    def get_serializer_class(self):
+        if self.action in ['list']:
+            return BoardListSerializer
+        return self.serializer_class
 
     def perform_create(self, serializer):
         board = serializer.save(owner=self.request.user)

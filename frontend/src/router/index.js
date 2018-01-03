@@ -3,6 +3,7 @@ import store from '../store'
 import Router from 'vue-router'
 import Home from '@/views/Home'
 import Login from '@/views/Login'
+import Board from '@/views/Board'
 import Account from '@/views/Account'
 import Dashboard from '@/views/Dashboard'
 
@@ -14,6 +15,7 @@ const router = new Router({
     { path: '/login', name: 'login', component: Login },
     { path: '/account', name: 'account', component: Account, meta: { requiresAuth: true } },
     { path: '/dashboard', name: 'dashboard', component: Dashboard, meta: { requiresAuth: true } },
+    { path: '/board/:boardId', name: 'board', component: Board, meta: { requiresAuth: true } },
     { path: '*', redirect: { name: 'home' } }
   ]
 })

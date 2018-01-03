@@ -4,7 +4,9 @@
       Tableaux
     </div>
     <b-list-group>
-      <b-list-group-item v-for="board in boards" :key="board.id" :href="'#/board/' + board.id">
+      <b-list-group-item v-for="board in boards"
+                         :key="board.id"
+                         @click="redirect(board)">
         <span v-if="board.is_owner">+</span>
         {{board.name}}
       </b-list-group-item>
@@ -21,27 +23,31 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+  import {mapState} from 'vuex'
 
-export default {
-  name: 'BoardList',
-  data () {
-    return {
-      newBoard: ''
+  export default {
+    name: 'BoardList',
+    data () {
+      return {
+        newBoard: ''
+      }
+    },
+    computed: mapState([
+      'boards'
+    ]),
+    methods: {
+      createBoard: function () {
+        this.$store.dispatch('saveBoard', this.newBoard)
+        this.newBoard = ''
+      },
+      redirect: function (board) {
+        this.$router.push({ name: 'board', params: { boardId: board.id } })
+      }
+    },
+    beforeMount () {
+      this.$store.dispatch('getBoards')
     }
-  },
-  computed: mapState([
-    'boards'
-  ]),
-  methods: {
-    createBoard: function () {
-      this.$store.dispatch('saveBoard', this.newBoard)
-    }
-  },
-  beforeMount () {
-    this.$store.dispatch('getBoards')
   }
-}
 </script>
 
 <style scoped>
