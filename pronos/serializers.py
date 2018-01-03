@@ -14,10 +14,8 @@ class PronoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Prono
-        fields = (
-            'id',
-            'points', 'score_domicile', 'score_visitor', 'match', 'modified')
-        read_only_fields = ('id', 'points', 'modified')
+        fields = ('id', 'score_domicile', 'score_visitor', 'match')
+        read_only_fields = ('id', )
 
 
 class MatchSerializer(serializers.ModelSerializer):
@@ -25,16 +23,23 @@ class MatchSerializer(serializers.ModelSerializer):
     team_visitor = TeamSerializer()
     score_domicile = serializers.SerializerMethodField()
     score_visitor = serializers.SerializerMethodField()
-    pronos = PronoSerializer(source='users', many=True)
+    prono = serializers.SerializerMethodField()
 
     class Meta:
         model = Match
         fields = (
             'id',
-            'pronos',
+            'prono',
             'team_domicile',
             'team_visitor',
             'stage', 'score_domicile', 'score_visitor', 'date')
+
+    def get_prono(self, obj):
+        user = self.context['request'].user
+        if obj.pronos.filter(pronos__user=user).exists():
+            return Prono.objects.get(
+                user=user, match=obj.id).id
+        return
 
     def get_score_domicile(self, obj):
         user = self.context['request'].user

@@ -53,8 +53,8 @@ class Match(models.Model):
         max_length=150,
         verbose_name="Equipe exterieur",
         related_name="as_visitor")
-    score_domicile = models.IntegerField(blank=True, null=True)
-    score_visitor = models.IntegerField(blank=True, null=True)
+    score_domicile = models.IntegerField(blank=True, default=0)
+    score_visitor = models.IntegerField(blank=True, default=0)
     stage = models.CharField(max_length=2, choices=STAGE_CHOICES)
     date = models.DateTimeField(verbose_name="Date du match", db_index=True)
     pronos = models.ManyToManyField(User, through='Prono')

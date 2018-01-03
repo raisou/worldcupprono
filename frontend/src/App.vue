@@ -8,7 +8,7 @@
         <b-col cols="12" sm="3" v-if="authenticated">
           <boardlist />
         </b-col>
-        <b-col cols="12" sm="9">
+        <b-col>
           <router-view />
         </b-col>
       </b-row>

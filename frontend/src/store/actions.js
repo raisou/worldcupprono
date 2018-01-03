@@ -71,6 +71,10 @@ export const getMatchs = ({ commit, state }) => {
   return Promise.resolve([])
 }
 
+export const saveProno = ({ commit, state }, prono) => {
+  Prono.saveProno(prono, state)
+}
+
 // Messages
 
 export const displayMessage = ({ commit }, payload) => {

@@ -1,192 +1,192 @@
 - model: pronos.match
   pk: 1
-  fields: {team_domicile: 2, team_visitor: 3, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 2, team_visitor: 3, score_domicile: 0, score_visitor: 0,
     stage: A, date: '2018-06-14 15:00:00+00:00'}
 - model: pronos.match
   pk: 2
-  fields: {team_domicile: 1, team_visitor: 4, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 1, team_visitor: 4, score_domicile: 0, score_visitor: 0,
     stage: A, date: '2018-06-15 12:00:00+00:00'}
 - model: pronos.match
   pk: 3
-  fields: {team_domicile: 2, team_visitor: 1, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 2, team_visitor: 1, score_domicile: 0, score_visitor: 0,
     stage: A, date: '2018-06-19 18:00:00+00:00'}
 - model: pronos.match
   pk: 4
-  fields: {team_domicile: 4, team_visitor: 3, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 4, team_visitor: 3, score_domicile: 0, score_visitor: 0,
     stage: A, date: '2018-06-20 15:00:00+00:00'}
 - model: pronos.match
   pk: 5
-  fields: {team_domicile: 4, team_visitor: 2, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 4, team_visitor: 2, score_domicile: 0, score_visitor: 0,
     stage: A, date: '2018-06-25 14:00:00+00:00'}
 - model: pronos.match
   pk: 6
-  fields: {team_domicile: 3, team_visitor: 1, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 3, team_visitor: 1, score_domicile: 0, score_visitor: 0,
     stage: A, date: '2018-06-25 14:00:00+00:00'}
 - model: pronos.match
   pk: 7
-  fields: {team_domicile: 6, team_visitor: 5, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 6, team_visitor: 5, score_domicile: 0, score_visitor: 0,
     stage: B, date: '2018-06-15 15:00:00+00:00'}
 - model: pronos.match
   pk: 8
-  fields: {team_domicile: 7, team_visitor: 8, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 7, team_visitor: 8, score_domicile: 0, score_visitor: 0,
     stage: B, date: '2018-06-15 18:00:00+00:00'}
 - model: pronos.match
   pk: 9
-  fields: {team_domicile: 7, team_visitor: 6, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 7, team_visitor: 6, score_domicile: 0, score_visitor: 0,
     stage: B, date: '2018-06-20 12:00:00+00:00'}
 - model: pronos.match
   pk: 10
-  fields: {team_domicile: 5, team_visitor: 8, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 5, team_visitor: 8, score_domicile: 0, score_visitor: 0,
     stage: B, date: '2018-06-20 18:00:00+00:00'}
 - model: pronos.match
   pk: 11
-  fields: {team_domicile: 8, team_visitor: 6, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 8, team_visitor: 6, score_domicile: 0, score_visitor: 0,
     stage: B, date: '2018-06-25 18:00:00+00:00'}
 - model: pronos.match
   pk: 12
-  fields: {team_domicile: 5, team_visitor: 7, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 5, team_visitor: 7, score_domicile: 0, score_visitor: 0,
     stage: B, date: '2018-06-25 18:00:00+00:00'}
 - model: pronos.match
   pk: 13
-  fields: {team_domicile: 11, team_visitor: 9, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 11, team_visitor: 9, score_domicile: 0, score_visitor: 0,
     stage: C, date: '2018-06-16 10:00:00+00:00'}
 - model: pronos.match
   pk: 14
-  fields: {team_domicile: 12, team_visitor: 10, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 12, team_visitor: 10, score_domicile: 0, score_visitor: 0,
     stage: C, date: '2018-06-16 16:00:00+00:00'}
 - model: pronos.match
   pk: 15
-  fields: {team_domicile: 10, team_visitor: 9, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 10, team_visitor: 9, score_domicile: 0, score_visitor: 0,
     stage: C, date: '2018-06-21 12:00:00+00:00'}
 - model: pronos.match
   pk: 16
-  fields: {team_domicile: 11, team_visitor: 12, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 11, team_visitor: 12, score_domicile: 0, score_visitor: 0,
     stage: C, date: '2018-06-21 15:00:00+00:00'}
 - model: pronos.match
   pk: 17
-  fields: {team_domicile: 10, team_visitor: 11, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 10, team_visitor: 11, score_domicile: 0, score_visitor: 0,
     stage: C, date: '2018-06-26 14:00:00+00:00'}
 - model: pronos.match
   pk: 18
-  fields: {team_domicile: 9, team_visitor: 12, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 9, team_visitor: 12, score_domicile: 0, score_visitor: 0,
     stage: C, date: '2018-06-26 14:00:00+00:00'}
 - model: pronos.match
   pk: 19
-  fields: {team_domicile: 13, team_visitor: 15, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 13, team_visitor: 15, score_domicile: 0, score_visitor: 0,
     stage: D, date: '2018-06-16 13:00:00+00:00'}
 - model: pronos.match
   pk: 20
-  fields: {team_domicile: 14, team_visitor: 16, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 14, team_visitor: 16, score_domicile: 0, score_visitor: 0,
     stage: D, date: '2018-06-16 19:00:00+00:00'}
 - model: pronos.match
   pk: 21
-  fields: {team_domicile: 13, team_visitor: 14, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 13, team_visitor: 14, score_domicile: 0, score_visitor: 0,
     stage: D, date: '2018-06-21 18:00:00+00:00'}
 - model: pronos.match
   pk: 22
-  fields: {team_domicile: 16, team_visitor: 15, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 16, team_visitor: 15, score_domicile: 0, score_visitor: 0,
     stage: D, date: '2018-06-22 15:00:00+00:00'}
 - model: pronos.match
   pk: 23
-  fields: {team_domicile: 15, team_visitor: 14, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 15, team_visitor: 14, score_domicile: 0, score_visitor: 0,
     stage: D, date: '2018-06-26 18:00:00+00:00'}
 - model: pronos.match
   pk: 24
-  fields: {team_domicile: 16, team_visitor: 13, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 16, team_visitor: 13, score_domicile: 0, score_visitor: 0,
     stage: D, date: '2018-06-26 18:00:00+00:00'}
 - model: pronos.match
   pk: 25
-  fields: {team_domicile: 18, team_visitor: 20, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 18, team_visitor: 20, score_domicile: 0, score_visitor: 0,
     stage: E, date: '2018-06-17 12:00:00+00:00'}
 - model: pronos.match
   pk: 26
-  fields: {team_domicile: 17, team_visitor: 19, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 17, team_visitor: 19, score_domicile: 0, score_visitor: 0,
     stage: E, date: '2018-06-17 18:00:00+00:00'}
 - model: pronos.match
   pk: 27
-  fields: {team_domicile: 17, team_visitor: 18, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 17, team_visitor: 18, score_domicile: 0, score_visitor: 0,
     stage: E, date: '2018-06-22 12:00:00+00:00'}
 - model: pronos.match
   pk: 28
-  fields: {team_domicile: 20, team_visitor: 19, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 20, team_visitor: 19, score_domicile: 0, score_visitor: 0,
     stage: E, date: '2018-06-22 18:00:00+00:00'}
 - model: pronos.match
   pk: 29
-  fields: {team_domicile: 20, team_visitor: 17, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 20, team_visitor: 17, score_domicile: 0, score_visitor: 0,
     stage: E, date: '2018-06-27 18:00:00+00:00'}
 - model: pronos.match
   pk: 30
-  fields: {team_domicile: 19, team_visitor: 18, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 19, team_visitor: 18, score_domicile: 0, score_visitor: 0,
     stage: E, date: '2018-06-27 18:00:00+00:00'}
 - model: pronos.match
   pk: 31
-  fields: {team_domicile: 21, team_visitor: 23, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 21, team_visitor: 23, score_domicile: 0, score_visitor: 0,
     stage: F, date: '2018-06-17 15:00:00+00:00'}
 - model: pronos.match
   pk: 32
-  fields: {team_domicile: 24, team_visitor: 22, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 24, team_visitor: 22, score_domicile: 0, score_visitor: 0,
     stage: F, date: '2018-06-18 12:00:00+00:00'}
 - model: pronos.match
   pk: 33
-  fields: {team_domicile: 22, team_visitor: 23, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 22, team_visitor: 23, score_domicile: 0, score_visitor: 0,
     stage: F, date: '2018-06-23 15:00:00+00:00'}
 - model: pronos.match
   pk: 34
-  fields: {team_domicile: 21, team_visitor: 24, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 21, team_visitor: 24, score_domicile: 0, score_visitor: 0,
     stage: F, date: '2018-06-23 18:00:00+00:00'}
 - model: pronos.match
   pk: 35
-  fields: {team_domicile: 22, team_visitor: 21, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 22, team_visitor: 21, score_domicile: 0, score_visitor: 0,
     stage: F, date: '2018-06-27 14:00:00+00:00'}
 - model: pronos.match
   pk: 36
-  fields: {team_domicile: 23, team_visitor: 24, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 23, team_visitor: 24, score_domicile: 0, score_visitor: 0,
     stage: F, date: '2018-06-27 14:00:00+00:00'}
 - model: pronos.match
   pk: 37
-  fields: {team_domicile: 25, team_visitor: 27, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 25, team_visitor: 27, score_domicile: 0, score_visitor: 0,
     stage: G, date: '2018-06-18 15:00:00+00:00'}
 - model: pronos.match
   pk: 38
-  fields: {team_domicile: 28, team_visitor: 26, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 28, team_visitor: 26, score_domicile: 0, score_visitor: 0,
     stage: G, date: '2018-06-18 18:00:00+00:00'}
 - model: pronos.match
   pk: 39
-  fields: {team_domicile: 25, team_visitor: 28, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 25, team_visitor: 28, score_domicile: 0, score_visitor: 0,
     stage: G, date: '2018-06-23 12:00:00+00:00'}
 - model: pronos.match
   pk: 40
-  fields: {team_domicile: 26, team_visitor: 27, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 26, team_visitor: 27, score_domicile: 0, score_visitor: 0,
     stage: G, date: '2018-06-24 12:00:00+00:00'}
 - model: pronos.match
   pk: 41
-  fields: {team_domicile: 26, team_visitor: 25, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 26, team_visitor: 25, score_domicile: 0, score_visitor: 0,
     stage: G, date: '2018-06-28 18:00:00+00:00'}
 - model: pronos.match
   pk: 42
-  fields: {team_domicile: 27, team_visitor: 28, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 27, team_visitor: 28, score_domicile: 0, score_visitor: 0,
     stage: G, date: '2018-06-28 18:00:00+00:00'}
 - model: pronos.match
   pk: 43
-  fields: {team_domicile: 29, team_visitor: 30, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 29, team_visitor: 30, score_domicile: 0, score_visitor: 0,
     stage: H, date: '2018-06-19 12:00:00+00:00'}
 - model: pronos.match
   pk: 44
-  fields: {team_domicile: 31, team_visitor: 32, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 31, team_visitor: 32, score_domicile: 0, score_visitor: 0,
     stage: H, date: '2018-06-19 15:00:00+00:00'}
 - model: pronos.match
   pk: 45
-  fields: {team_domicile: 30, team_visitor: 32, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 30, team_visitor: 32, score_domicile: 0, score_visitor: 0,
     stage: H, date: '2018-06-24 15:00:00+00:00'}
 - model: pronos.match
   pk: 46
-  fields: {team_domicile: 31, team_visitor: 29, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 31, team_visitor: 29, score_domicile: 0, score_visitor: 0,
     stage: H, date: '2018-06-24 18:00:00+00:00'}
 - model: pronos.match
   pk: 47
-  fields: {team_domicile: 30, team_visitor: 31, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 30, team_visitor: 31, score_domicile: 0, score_visitor: 0,
     stage: H, date: '2018-06-28 14:00:00+00:00'}
 - model: pronos.match
   pk: 48
-  fields: {team_domicile: 32, team_visitor: 29, score_domicile: null, score_visitor: null,
+  fields: {team_domicile: 32, team_visitor: 29, score_domicile: 0, score_visitor: 0,
     stage: H, date: '2018-06-28 14:00:00+00:00'}
