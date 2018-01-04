@@ -16,12 +16,14 @@ from .models import Board
 class BoardViewSet(viewsets.ModelViewSet):
     permission_classes = (GlobalUserPermission, BoardPermission)
     serializer_class = BoardSerializer
-    queryset = Board.objects.all()
 
     def get_serializer_class(self):
         if self.action in ['list']:
             return BoardListSerializer
         return self.serializer_class
+
+    def get_queryset(self):
+        return Board.objects.filter(users=self.request.user)
 
     def perform_create(self, serializer):
         board = serializer.save(owner=self.request.user)

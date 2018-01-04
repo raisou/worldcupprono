@@ -21,5 +21,12 @@ export default {
       '/api/boards/' + boardId + '/',
       this.addAuthorizationHeader(state.token)
     )
+  },
+  inviteEmails (boardId, emails, state) {
+    return axios.post(
+      '/api/boards/' + boardId + '/invite/',
+      {emails: emails},
+      this.addAuthorizationHeader(state.token)
+    )
   }
 }
