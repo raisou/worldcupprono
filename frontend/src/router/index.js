@@ -5,6 +5,7 @@ import Home from '@/views/Home'
 import Login from '@/views/Login'
 import Board from '@/views/Board'
 import Account from '@/views/Account'
+import Register from '@/views/Register'
 import Dashboard from '@/views/Dashboard'
 
 Vue.use(Router)
@@ -13,6 +14,7 @@ const router = new Router({
   routes: [
     { path: '/', name: 'home', component: Home, meta: { requiresAuth: true } },
     { path: '/login', name: 'login', component: Login },
+    { path: '/register', name: 'registration', component: Register },
     { path: '/account', name: 'account', component: Account, meta: { requiresAuth: true } },
     { path: '/dashboard', name: 'dashboard', component: Dashboard, meta: { requiresAuth: true } },
     { path: '/board/:boardId', name: 'board', component: Board, meta: { requiresAuth: true } },
