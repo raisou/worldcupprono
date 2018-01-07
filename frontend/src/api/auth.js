@@ -8,7 +8,7 @@ export default {
   },
   requestNewToken (token) {
     return axios.post('/api/auth/jwt/refresh/', token).then(response => {
-      return response.data
+      return response.data.token
     })
   }
 }
