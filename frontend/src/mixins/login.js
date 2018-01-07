@@ -3,6 +3,19 @@ import message from '../services/message'
 
 var loginMixin = {
   methods: {
+    data () {
+      return {
+        username: '',
+        password: ''
+      }
+    },
+    formIsValid () {
+      if (!this.username || !this.password) {
+        message.error('Tous les champs sont obligatoires')
+        return false
+      }
+      return true
+    },
     signIn () {
       if (this.formIsValid()) {
         Auth.login({username: this.username, password: this.password})

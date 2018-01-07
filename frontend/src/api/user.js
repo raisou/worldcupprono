@@ -14,5 +14,8 @@ export default {
   },
   confirmResetPassword (password) {
     return axios.post('/api/auth/password/reset/confirm/', password)
+  },
+  activate (token) {
+    return axios.post('/api/auth/users/activate/', token)
   }
 }

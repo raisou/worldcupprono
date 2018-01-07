@@ -8,6 +8,7 @@ import Account from '@/views/Account'
 import Register from '@/views/Register'
 import Dashboard from '@/views/Dashboard'
 import PasswordReset from '@/views/PasswordReset'
+import UserActivation from '@/views/UserActivation'
 import PasswordResetConfirm from '@/views/PasswordResetConfirm'
 
 Vue.use(Router)
@@ -17,6 +18,7 @@ const router = new Router({
     { path: '/', name: 'home', component: Home, meta: { requiresAuth: true } },
     { path: '/login', name: 'login', component: Login },
     { path: '/register', name: 'registration', component: Register },
+    { path: '/activate/:uid/:token', name: 'userActivation', component: UserActivation },
     { path: '/password-reset', name: 'passwordReset', component: PasswordReset },
     { path: '/password-reset/confirm/:uid/:token', name: 'passwordResetConfirm', component: PasswordResetConfirm },
     { path: '/account', name: 'account', component: Account, meta: { requiresAuth: true } },

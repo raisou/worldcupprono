@@ -58,7 +58,6 @@
 <script>
   import {mapState} from 'vuex'
   import Auth from '../api/auth'
-  import loginMixin from '../mixins/login'
   import message from '../services/message'
 
   export default {
@@ -69,7 +68,6 @@
         password: ''
       }
     },
-    mixins: [loginMixin],
     computed: mapState([
       'authenticated'
     ]),
@@ -87,8 +85,10 @@
             username: this.username, email: this.email, password: this.password
           })
           .then(() => {
-            message.success('Bienvenue')
-            this.signIn()
+            message.success("Un email d'activation vous a été envoyé")
+            this.username = ''
+            this.email = ''
+            this.password = ''
           })
           .catch(err => {
             if (err.response && err.response.status === 400) {

@@ -63,7 +63,6 @@
 <script>
   import {mapState} from 'vuex'
   import loginMixin from '../mixins/login'
-  import message from '../services/message'
 
   export default {
     data () {
@@ -75,16 +74,7 @@
     mixins: [loginMixin],
     computed: mapState([
       'authenticated'
-    ]),
-    methods: {
-      formIsValid () {
-        if (!this.username || !this.password) {
-          message.error('Tous les champs sont obligatoires')
-          return false
-        }
-        return true
-      }
-    }
+    ])
   }
 </script>
 
