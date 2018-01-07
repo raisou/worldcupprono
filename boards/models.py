@@ -14,7 +14,7 @@ class Board(models.Model):
         return self.name
 
     class Meta:
-        ordering = ['-created']
+        ordering = ['name']
 
     @property
     def meta(self):
