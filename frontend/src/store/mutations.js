@@ -7,6 +7,8 @@ export default {
   [types.LOGOUT] (state) {
     state.authenticated = false
     state.token = null
+    state.matchs = []
+    state.boards = []
   },
   [types.SET_TOKEN] (state, { token }) {
     state.token = token
