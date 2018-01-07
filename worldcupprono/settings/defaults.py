@@ -124,6 +124,10 @@ REST_FRAMEWORK = {
     )
 }
 
+DJOSER = {
+    'PASSWORD_RESET_CONFIRM_URL': '#/password-reset/confirm/{uid}/{token}'
+}
+
 JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': timedelta(days=7),
     'JWT_REFRESH_EXPIRATION_DELTA': timedelta(days=14),

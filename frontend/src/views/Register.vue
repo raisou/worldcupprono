@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form class="form-register"
+    <form class="register"
           v-on:submit.prevent="register"
           v-if="!authenticated">
       <h2 class="form-register-heading">Enregistrement</h2>
@@ -26,7 +26,6 @@
                class="form-control"
                type="text"
                placeholder="Email"
-               autofocus
                v-model="email" />
       </div>
       <div class="form-group">
@@ -105,39 +104,5 @@
 </script>
 
 <style scoped>
-  .form-register {
-    max-width: 330px;
-    padding: 15px;
-    margin: 150px auto;
-  }
-  .form-register .form-register-heading,
-  .form-register .checkbox {
-    margin-bottom: 10px;
-  }
-  .form-register .checkbox {
-    font-weight: 400;
-  }
-  .form-register .form-control {
-    position: relative;
-    box-sizing: border-box;
-    height: auto;
-    padding: 10px;
-    font-size: 16px;
-  }
-  .form-register .form-control:focus {
-    z-index: 2;
-  }
-  .form-register input[type="email"] {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-  .form-register input[type="password"] {
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
-  .form-register .form-group {
-    margin-bottom: 10px;
-  }
+
 </style>

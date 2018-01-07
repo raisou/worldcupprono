@@ -36,6 +36,44 @@
 </script>
 
 <style>
+  form.login,
+  form.register,
+  form.password-reset,
+  form.password-reset-confirm
+  {
+    max-width: 330px;
+    padding: 15px;
+    margin: 150px auto;
+  }
+  form.login .form-control,
+  form.register .form-control,
+  form.password-reset .form-control,
+  form.password-reset-confirm .form-control
+  {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+  }
+  form.login .form-control:focus,
+  form.register .form-control:focus,
+  form.password-reset .form-control:focus,
+  form.password-reset-confirm .form-control:focus
+  {
+    z-index: 2;
+  }
+  form.login input,
+  form.register input,
+  form.password-reset input,
+  form.password-reset-confirm input
+  {
+    margin-bottom: 10px;
+  }
+
+  button.btn {
+    cursor: pointer;
+  }
   .flag-icon {
     border-radius: 15px;
     font-size: 28px;
