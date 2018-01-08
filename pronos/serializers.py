@@ -21,9 +21,8 @@ class PronoSerializer(serializers.ModelSerializer):
 class MatchSerializer(serializers.ModelSerializer):
     team_domicile = TeamSerializer()
     team_visitor = TeamSerializer()
-    score_domicile = serializers.SerializerMethodField()
-    score_visitor = serializers.SerializerMethodField()
     prono = serializers.SerializerMethodField()
+    locked = serializers.BooleanField(source='is_locked', read_only=True)
 
     class Meta:
         model = Match
@@ -31,26 +30,12 @@ class MatchSerializer(serializers.ModelSerializer):
             'id',
             'prono',
             'team_domicile',
-            'team_visitor',
-            'stage', 'score_domicile', 'score_visitor', 'date')
+            'team_visitor', 'stage', 'date', 'locked', 'played')
 
     def get_prono(self, obj):
-        user = self.context['request'].user
-        if obj.pronos.filter(pronos__user=user).exists():
-            return Prono.objects.get(
-                user=user, match=obj.id).id
-        return
-
-    def get_score_domicile(self, obj):
-        user = self.context['request'].user
-        if obj.pronos.filter(pronos__user=user).exists():
-            return Prono.objects.get(
-                user=user, match=obj.id).score_domicile
-        return obj.score_domicile
-
-    def get_score_visitor(self, obj):
-        user = self.context['request'].user
-        if obj.pronos.filter(pronos__user=user).exists():
-            return Prono.objects.get(
-                user=user, match=obj.id).score_visitor
-        return obj.score_visitor
+        try:
+            return PronoSerializer(
+                Prono.objects.get(
+                    user=self.context['request'].user, match=obj.id)).data
+        except Prono.DoesNotExist:
+            return

@@ -20,4 +20,7 @@ class PronoViewSet(viewsets.ModelViewSet):
 class MatchListView(generics.ListAPIView):
     permission_classes = (GlobalUserPermission, MatchPermission)
     serializer_class = MatchSerializer
-    queryset = Match.objects.order_by('date')
+    queryset = Match.objects\
+        .select_related('team_domicile', 'team_visitor')\
+        .prefetch_related('pronos')\
+        .order_by('date')

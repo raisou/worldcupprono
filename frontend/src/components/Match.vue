@@ -7,25 +7,25 @@
         {{ match.team_domicile.name }}
     </td>
     <td class="text-center">
-      <span v-if="match.prono || editing">
+      <span v-if="match.prono.id || editing">
         <span @click="edit()"
               v-if="!editing">
-          {{ match.score_domicile | default_if_null(0) }}
+          {{ match.prono.score_domicile }}
         </span>
         <input type="text"
                size="1"
-               v-model="match.score_domicile"
+               v-model="match.prono.score_domicile"
                placeholder="0"
                v-if="editing"
                @keyup.enter="updateProno()" />
         -
         <span @click="edit()"
               v-if="!editing">
-          {{ match.score_visitor | default_if_null(0) }}
+          {{ match.prono.score_visitor }}
         </span>
         <input type="text"
                size="1"
-               v-model="match.score_visitor"
+               v-model="match.prono.score_visitor"
                placeholder="0"
                v-if="editing"
                @keyup.enter="updateProno()" />
@@ -47,8 +47,8 @@
 </template>
 
 <script>
-  import Prono from '../api/prono'
-  import message from '../services/message'
+  import Prono from '@/api/prono'
+  import message from '@/services/message'
 
   export default {
     name: 'match',
@@ -63,17 +63,17 @@
         this.editing = true
       },
       updateProno: function () {
-        if (!this.match.prono) {
+        if (!this.match.prono.id) {
           Prono.saveProno(
             {
               match: this.match.id,
-              score_domicile: this.match.score_domicile,
-              score_visitor: this.match.score_visitor
+              score_domicile: this.match.prono.score_domicile,
+              score_visitor: this.match.prono.score_visitor
             },
             this.$store.state
           )
           .then(response => {
-            this.match.prono = response.data.id
+            this.match.prono = response.data
             this.editing = false
           })
           .catch(err => {
@@ -85,11 +85,11 @@
           })
         } else {
           Prono.updateProno(
-            this.match.prono,
+            this.match.prono.id,
             {
               match: this.match.id,
-              score_domicile: this.match.score_domicile,
-              score_visitor: this.match.score_visitor
+              score_domicile: this.match.prono.score_domicile,
+              score_visitor: this.match.prono.score_visitor
             },
             this.$store.state
           )

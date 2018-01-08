@@ -1,4 +1,7 @@
+from datetime import timedelta
+
 from django.db import models
+from django.utils import timezone
 from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 
@@ -58,6 +61,7 @@ class Match(models.Model):
     stage = models.CharField(max_length=2, choices=STAGE_CHOICES)
     date = models.DateTimeField(verbose_name="Date du match", db_index=True)
     pronos = models.ManyToManyField(User, through='Prono')
+    played = models.BooleanField(default=False)
 
     def __str__(self):
         return "{} - {} vs {}".format(
@@ -77,6 +81,11 @@ class Match(models.Model):
     @property
     def class_name(self):
         return self.__class__.__name__
+
+    @property
+    def is_locked(self):
+        day_before = self.date - timedelta(days=1)
+        return timezone.now() > day_before
 
 
 class Prono(models.Model):

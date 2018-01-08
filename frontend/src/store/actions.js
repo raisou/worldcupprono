@@ -63,7 +63,17 @@ export const getBoards = ({ commit, state }) => {
 export const getMatchs = ({ commit, state }) => {
   if (state.authenticated) {
     return Prono.getMatchs(state).then(response => {
-      const matchs = response.data
+      let matchs = []
+      response.data.forEach(function (value, key) {
+        if (!value.prono) {
+          value.prono = {
+            id: null,
+            score_domicile: 0,
+            score_visitor: 0
+          }
+        }
+        matchs.push(value)
+      })
       commit(types.SET_MATCHS, { matchs })
       return matchs
     })

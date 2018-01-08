@@ -13,8 +13,8 @@ class TeamAdmin(admin.ModelAdmin):
 @admin.register(Match)
 class MatchAdmin(admin.ModelAdmin):
     list_display = (
-        '__str__', 'date', 'score_domicile', 'score_visitor')
-    list_filter = ('stage', )
+        '__str__', 'date', 'score_domicile', 'score_visitor', 'played')
+    list_filter = ('stage', 'played')
     search_fields = ('team_domicile__name', 'team_visitor__name')
     list_per_page = 20
 

@@ -21,10 +21,6 @@ Vue.filter('lower', function (value) {
   return value.toLowerCase()
 })
 
-Vue.filter('default_if_null', function (value, arg) {
-  return value || arg
-})
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
