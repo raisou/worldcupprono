@@ -11,7 +11,9 @@ from .serializers import (MatchSerializer, PronoSerializer)
 class PronoViewSet(viewsets.ModelViewSet):
     permission_classes = (GlobalUserPermission, PronoPermission)
     serializer_class = PronoSerializer
-    queryset = Prono.objects.all()
+
+    def get_queryset(self):
+        return Prono.objects.filter(user=self.request.user)
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)

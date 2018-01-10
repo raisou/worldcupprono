@@ -121,7 +121,8 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
         'rest_framework.authentication.SessionAuthentication'
-    )
+    ),
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json'
 }
 
 DJOSER = {
