@@ -9,7 +9,6 @@ BASE_DIR = os.path.dirname(
 DEBUG = True
 
 INSTALLED_APPS += (
-    'django_jenkins',
     'debug_toolbar',
     'debug_panel',
     'django_extensions'
