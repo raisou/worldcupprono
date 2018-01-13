@@ -3,6 +3,7 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 
 from worldcupprono.factories import UserFactory
+from pronos.factories import (MatchFactory, PronoFactory)
 
 from .factories import BoardFactory
 
@@ -189,6 +190,22 @@ class BoardAPITestCase(APITestCase):
 
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
+    def test_cant_see_others_boards_if_not_invited(self):
+        self.client.force_authenticate(user=self.user)
+
+        user2 = UserFactory.create()
+        board = BoardFactory.create(owner=user2)
+
+        response = self.client.get(
+            reverse('boards-detail', args=[board.id]))
+
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+        response = self.client.get(reverse('boards-list'))
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 0)
+
     def test_anonymous_invite_board(self):
         pass
 
@@ -203,3 +220,96 @@ class BoardAPITestCase(APITestCase):
 
     def test_user_invite_known_auto_add_board(self):
         pass
+
+    def test_score_user_exact(self):
+        self.client.force_authenticate(user=self.user)
+
+        board = BoardFactory.create(owner=self.user)
+        match = MatchFactory.create()
+        prono = PronoFactory.create(user=self.user, match=match)
+
+        response = self.client.get(reverse('boards-detail', args=[board.id]))
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data.get('users')[0].get('points'), 0)
+
+        # now validate match score
+        match.score_domicile = prono.score_domicile
+        match.score_visitor = prono.score_visitor
+        match.played = True
+        match.save()
+
+        response = self.client.get(reverse('boards-detail', args=[board.id]))
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data.get('users')[0].get('points'), 3)
+
+    def test_score_user_partial(self):
+        self.client.force_authenticate(user=self.user)
+
+        board = BoardFactory.create(owner=self.user)
+        match = MatchFactory.create()
+        prono = PronoFactory.create(
+            score_domicile=1, score_visitor=0, user=self.user, match=match)
+
+        response = self.client.get(reverse('boards-detail', args=[board.id]))
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data.get('users')[0].get('points'), 0)
+
+        # now validate match score
+        match.score_domicile = 2
+        match.score_visitor = prono.score_visitor
+        match.played = True
+        match.save()
+
+        response = self.client.get(reverse('boards-detail', args=[board.id]))
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data.get('users')[0].get('points'), 1)
+
+    def test_score_user_wrong(self):
+        self.client.force_authenticate(user=self.user)
+
+        board = BoardFactory.create(owner=self.user)
+        match = MatchFactory.create()
+        prono = PronoFactory.create(
+            score_domicile=1, score_visitor=0, user=self.user, match=match)
+
+        response = self.client.get(reverse('boards-detail', args=[board.id]))
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data.get('users')[0].get('points'), 0)
+
+        # now validate match score
+        match.score_domicile = prono.score_visitor
+        match.score_visitor = prono.score_domicile
+        match.played = True
+        match.save()
+
+        response = self.client.get(reverse('boards-detail', args=[board.id]))
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data.get('users')[0].get('points'), 0)
+
+    def test_score_user_if_no_prono(self):
+        self.client.force_authenticate(user=self.user)
+
+        board = BoardFactory.create(owner=self.user)
+        match = MatchFactory.create()
+
+        response = self.client.get(reverse('boards-detail', args=[board.id]))
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data.get('users')[0].get('points'), 0)
+
+        # now validate match score
+        match.score_domicile = 0
+        match.score_visitor = 0
+        match.played = True
+        match.save()
+
+        response = self.client.get(reverse('boards-detail', args=[board.id]))
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data.get('users')[0].get('points'), 0)

@@ -3,7 +3,8 @@ from datetime import timedelta
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-from django.contrib.contenttypes.models import ContentType
+
+from .mixins import BasePronoModelMixin
 
 
 class Team(models.Model):
@@ -17,20 +18,8 @@ class Team(models.Model):
     class Meta:
         ordering = ['name']
 
-    @property
-    def meta(self):
-        return self._meta
 
-    @property
-    def contenttype(self):
-        return ContentType.objects.get_for_model(self)
-
-    @property
-    def class_name(self):
-        return self.__class__.__name__
-
-
-class Match(models.Model):
+class Match(BasePronoModelMixin):
     STAGE_CHOICES = (
         ("A", "Groupe A"),
         ("B", "Groupe B"),
@@ -56,8 +45,6 @@ class Match(models.Model):
         max_length=150,
         verbose_name="Equipe exterieur",
         related_name="as_visitor")
-    score_domicile = models.IntegerField(blank=True, default=0)
-    score_visitor = models.IntegerField(blank=True, default=0)
     stage = models.CharField(max_length=2, choices=STAGE_CHOICES)
     date = models.DateTimeField(verbose_name="Date du match", db_index=True)
     pronos = models.ManyToManyField(User, through='Prono')
@@ -71,40 +58,13 @@ class Match(models.Model):
         ordering = ['date']
 
     @property
-    def meta(self):
-        return self._meta
-
-    @property
-    def contenttype(self):
-        return ContentType.objects.get_for_model(self)
-
-    @property
-    def class_name(self):
-        return self.__class__.__name__
-
-    @property
     def is_locked(self):
         day_before = self.date - timedelta(days=1)
         return timezone.now() > day_before
 
 
-class Prono(models.Model):
-    # Type
-    TYPE_WIN = 'V'
-    TYPE_DRAW = 'N'
-    TYPE_LOSE = 'D'
-
-    TYPE_CHOICES = (
-        (TYPE_WIN, "Victoire de l'équipe à domicile"),
-        (TYPE_DRAW, "Match nul"),
-        (TYPE_LOSE, "Défaite de l'équipe à domicile")
-    )
-
-    prono = models.CharField(
-        max_length=1, choices=TYPE_CHOICES, default=TYPE_DRAW)
+class Prono(BasePronoModelMixin):
     points = models.IntegerField(blank=True, default=0)
-    score_domicile = models.IntegerField(default=0)
-    score_visitor = models.IntegerField(default=0)
     user = models.ForeignKey(User, related_name="pronos")
     match = models.ForeignKey(Match, related_name="users")
     modified = models.DateTimeField(
@@ -113,19 +73,7 @@ class Prono(models.Model):
         db_index=True)
 
     def __str__(self):
-        return u'Match: %s - User id: %s' % (self.match.pk, self.user.pk)
+        return 'Match: {} - User: {}'.format(self.match.pk, self.user.pk)
 
     class Meta:
         unique_together = ("match", "user")
-
-    @property
-    def meta(self):
-        return self._meta
-
-    @property
-    def contenttype(self):
-        return ContentType.objects.get_for_model(self)
-
-    @property
-    def class_name(self):
-        return self.__class__.__name__

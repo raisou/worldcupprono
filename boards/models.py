@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.contrib.contenttypes.models import ContentType
 
 
 class Board(models.Model):
@@ -15,15 +14,3 @@ class Board(models.Model):
 
     class Meta:
         ordering = ['name']
-
-    @property
-    def meta(self):
-        return self._meta
-
-    @property
-    def contenttype(self):
-        return ContentType.objects.get_for_model(self)
-
-    @property
-    def class_name(self):
-        return self.__class__.__name__

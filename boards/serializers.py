@@ -18,7 +18,16 @@ class UserListSerializer(serializers.ModelSerializer):
         read_only_fields = (User.USERNAME_FIELD,)
 
     def get_points(self, obj):
-        return 0
+        score = 0
+        for prono in obj.pronos.filter(match__played=True)\
+                .select_related('match'):
+            if prono.match.result == prono.result:
+                if prono.match.score_domicile == prono.score_domicile and\
+                        prono.match.score_visitor == prono.score_visitor:
+                        score += 3
+                else:
+                    score += 1
+        return score
 
 
 class BoardListSerializer(serializers.ModelSerializer):

@@ -10,6 +10,7 @@ class TeamFactory(factory.django.DjangoModelFactory):
 
     class Meta:
         model = Team
+        django_get_or_create = ('name', 'code')
 
     name = factory.Faker('country')
     code = factory.Faker('country_code')
@@ -24,7 +25,7 @@ class MatchFactory(factory.django.DjangoModelFactory):
     team_visitor = factory.SubFactory(TeamFactory)
     stage = "A"
     date = factory.Faker(
-        'future_datetime', end_date="+1d", tzinfo=get_current_timezone())
+        'future_datetime', end_date="+1y", tzinfo=get_current_timezone())
 
 
 class PronoFactory(factory.django.DjangoModelFactory):

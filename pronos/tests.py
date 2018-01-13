@@ -1,3 +1,7 @@
+from datetime import timedelta
+
+from freezegun import freeze_time
+from django.utils import timezone
 from django.core.urlresolvers import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
@@ -243,3 +247,70 @@ class PronoAPITestCase(APITestCase):
             reverse('pronos-detail', args=[prono.id]))
 
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+    def test_user_update_prono_after_time(self):
+        self.client.force_authenticate(user=self.user)
+
+        match_date = timezone.now()
+        match = MatchFactory.create(date=match_date)
+        prono = PronoFactory.create(user=self.user, match=match)
+
+        data = {
+            'score_domicile': 0,
+            'score_visitor': 0,
+            'match': match.id
+        }
+
+        with freeze_time(match_date - timedelta(days=1, hours=2)):
+            response = self.client.put(
+                reverse('pronos-detail', args=[prono.id]), data)
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        with freeze_time(match_date - timedelta(days=1)):
+            response = self.client.put(
+                reverse('pronos-detail', args=[prono.id]), data)
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        with freeze_time(match_date - timedelta(hours=23, minutes=59)):
+            response = self.client.put(
+                reverse('pronos-detail', args=[prono.id]), data)
+
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_user_delete_prono_after_time(self):
+        self.client.force_authenticate(user=self.user)
+
+        match_date = timezone.now()
+        match = MatchFactory.create(date=match_date)
+        prono = PronoFactory.create(user=self.user, match=match)
+
+        with freeze_time(match_date - timedelta(hours=23)):
+            response = self.client.delete(
+                reverse('pronos-detail', args=[prono.id]))
+
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+        with freeze_time(match_date - timedelta(hours=25)):
+            response = self.client.delete(
+                reverse('pronos-detail', args=[prono.id]))
+
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+    def test_user_create_prono_after_time(self):
+        self.client.force_authenticate(user=self.user)
+
+        match_date = timezone.now()
+        match = MatchFactory.create(date=match_date)
+
+        data = {
+            'score_domicile': 0,
+            'score_visitor': 0,
+            'match': match.id
+        }
+
+        with freeze_time(match_date - timedelta(hours=23)):
+            response = self.client.post(reverse('pronos-list'), data)
+
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)

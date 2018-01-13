@@ -4,7 +4,7 @@ from rest_framework import viewsets
 from worldcupprono.permissions import GlobalUserPermission
 
 from .models import (Match, Prono)
-from .permissions import (MatchPermission, PronoPermission)
+from .permissions import PronoPermission
 from .serializers import (MatchSerializer, PronoSerializer)
 
 
@@ -20,7 +20,7 @@ class PronoViewSet(viewsets.ModelViewSet):
 
 
 class MatchListView(generics.ListAPIView):
-    permission_classes = (GlobalUserPermission, MatchPermission)
+    permission_classes = (GlobalUserPermission, )
     serializer_class = MatchSerializer
     queryset = Match.objects\
         .select_related('team_domicile', 'team_visitor')\
