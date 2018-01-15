@@ -15,7 +15,7 @@
       </b-nav-item>
       <b-nav-item-dropdown right no-caret>
         <template slot="button-content">
-          {{ me.username }}
+          <v-gravatar class="img-avatar" :email="me.email" default-img="mm" />
         </template>
         <b-dropdown-item @click="redirect('account')">
           <icon name="user"></icon> Mon compte
@@ -78,5 +78,4 @@ export default {
       text-align: center;
     }
   }
-
 </style>
