@@ -15,16 +15,59 @@ Vue.use(Router)
 
 const router = new Router({
   routes: [
-    { path: '/', name: 'home', component: Home, meta: { requiresAuth: true } },
-    { path: '/login', name: 'login', component: Login },
-    { path: '/register', name: 'registration', component: Register },
-    { path: '/activate/:uid/:token', name: 'userActivation', component: UserActivation },
-    { path: '/password-reset', name: 'passwordReset', component: PasswordReset },
-    { path: '/password-reset/confirm/:uid/:token', name: 'passwordResetConfirm', component: PasswordResetConfirm },
-    { path: '/account', name: 'account', component: Account, meta: { requiresAuth: true } },
-    { path: '/dashboard', name: 'dashboard', component: Dashboard, meta: { requiresAuth: true } },
-    { path: '/board/:boardId', name: 'board', component: Board, meta: { requiresAuth: true } },
-    { path: '*', redirect: { name: 'home' } }
+    {
+      path: '/',
+      name: 'home',
+      component: Home,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: '/register',
+      name: 'registration',
+      component: Register
+    },
+    {
+      path: '/activate/:uid/:token',
+      name: 'userActivation',
+      component: UserActivation
+    },
+    {
+      path: '/password-reset',
+      name: 'passwordReset',
+      component: PasswordReset
+    },
+    {
+      path: '/password-reset/confirm/:uid/:token',
+      name: 'passwordResetConfirm',
+      component: PasswordResetConfirm
+    },
+    {
+      path: '/account',
+      name: 'account',
+      component: Account,
+      meta: { label: 'Mon compte', requiresAuth: true }
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: Dashboard,
+      meta: { label: 'Mes pronos', requiresAuth: true }
+    },
+    {
+      path: '/board/:boardId',
+      name: 'board',
+      component: Board,
+      meta: { label: 'Tableau', requiresAuth: true }
+    },
+    {
+      path: '*',
+      redirect: { name: 'home' }
+    }
   ]
 })
 

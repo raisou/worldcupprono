@@ -1,16 +1,9 @@
 <template>
-  <div class="card">
-    <div class="card-header">
-      Dashboard
-    </div>
-    <div class="card-body">
-      <b-row>
-        <group v-for="(group, index) in groups"
-               :key="`group-${index}`"
-               :name="group"></group>
-      </b-row>
-    </div>
-  </div>
+  <b-row>
+    <group v-for="(group, index) in groups"
+           :key="`group-${index}`"
+           :name="group"></group>
+  </b-row>
 </template>
 
 

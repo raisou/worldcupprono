@@ -1,33 +1,44 @@
 <template>
-  <div id="app">
-    <navbar v-if="authenticated" />
-    <message />
+  <div>
+    <div class="app" v-if="authenticated">
+      <navbar />
+      <message />
 
-    <b-container fluid>
-      <b-row>
-        <b-col cols="12" sm="3" v-if="authenticated">
-          <boardlist />
-        </b-col>
-        <b-col>
-          <router-view />
-        </b-col>
-      </b-row>
-    </b-container>
+      <div class="app-body">
+        <boardlist />
+        <main class="main">
+          <breadcrumb :list="list" />
+          <div class="container-fluid">
+            <router-view></router-view>
+          </div>
+        </main>
+      </div>
+    </div>
+    <div v-else>
+      <message />
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
-  import Navbar from './components/Navbar.vue'
-  import Message from './components/Message.vue'
-  import Boardlist from './components/Boardlist.vue'
+  import Navbar from '@/components/Navbar.vue'
+  import Message from '@/components/Message.vue'
+  import Boardlist from '@/components/Boardlist.vue'
+  import Breadcrumb from '@/components/Breadcrumb.vue'
   import {mapState} from 'vuex'
 
   export default {
     name: 'app',
-    components: { Navbar, Boardlist, Message },
-    computed: mapState([
-      'authenticated'
-    ]),
+    components: { Navbar, Boardlist, Message, Breadcrumb },
+    computed: {
+      list () {
+        return this.$route.matched
+      },
+      ...mapState([
+        'authenticated'
+      ])
+    },
     created () {
       this.$store.dispatch('cleanMessage')
       this.$store.dispatch('refreshToken')
@@ -35,47 +46,16 @@
   }
 </script>
 
-<style>
-  form.login,
-  form.register,
-  form.password-reset,
-  form.password-reset-confirm
-  {
-    max-width: 330px;
-    padding: 15px;
-    margin: 150px auto;
-  }
-  form.login .form-control,
-  form.register .form-control,
-  form.password-reset .form-control,
-  form.password-reset-confirm .form-control
-  {
-    position: relative;
-    box-sizing: border-box;
-    height: auto;
-    padding: 10px;
-    font-size: 16px;
-  }
-  form.login .form-control:focus,
-  form.register .form-control:focus,
-  form.password-reset .form-control:focus,
-  form.password-reset-confirm .form-control:focus
-  {
-    z-index: 2;
-  }
-  form.login input,
-  form.register input,
-  form.password-reset input,
-  form.password-reset-confirm input
-  {
-    margin-bottom: 10px;
-  }
+<style lang="scss">
+  // Import Main styles for this application
+  @import './scss/style';
 
-  button.btn {
-    cursor: pointer;
-  }
   .flag-icon {
     border-radius: 15px;
     font-size: 28px;
+  }
+
+  .fa-icon {
+    margin: auto;
   }
 </style>

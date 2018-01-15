@@ -4,7 +4,7 @@
       <div class="card-header">
         Groupe {{ name }}
       </div>
-      <table class="table table-hover">
+      <table class="table table-hover mb-0">
         <tbody>
           <match v-for="match in filterMatchByGroup(matchs)"
                  :key="match.id"

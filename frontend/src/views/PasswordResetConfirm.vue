@@ -1,28 +1,39 @@
 <template>
-  <form class="password-reset-confirm"
-        v-on:submit.prevent="resetPasswordConfirm">
-    <h2 class="form-register-heading">Confirmation de réinitialisation</h2>
+  <div class="app flex-row align-items-center">
+    <div class="container">
+      <b-row class="justify-content-center">
+        <b-col md="6" sm="8">
+          <b-card-group>
+            <b-card no-body class="p-4">
+              <b-card-body>
+                <form v-on:submit.prevent="resetPasswordConfirm">
+                  <h2>
+                    Confirmation de réinitialisation
+                  </h2>
 
-    <div class="form-group">
-      <label for="password"
-             class="sr-only">
-        Nouveau mot de passe
-      </label>
-      <input id="password"
-             class="form-control"
-             type="password"
-             placeholder="Nouveau mot de passe"
-             v-model="newPassword">
+                  <div class="input-group mb-3">
+                    <span class="input-group-addon">
+                      <icon name="lock"></icon>
+                    </span>
+                    <input type="password"
+                           class="form-control"
+                           placeholder="Nouveau mot de passe"
+                           v-model="newPassword" />
+                  </div>
+
+                  <b-button variant="primary"
+                            type="submit"
+                            block>
+                    Confirmer réinitialisation
+                  </b-button>
+                </form>
+              </b-card-body>
+            </b-card>
+          </b-card-group>
+        </b-col>
+      </b-row>
     </div>
-    <div class="form-group row">
-      <div class="col">
-        <button class="btn btn-primary"
-                type="submit">
-          Confirmer réinitialisation
-        </button>
-      </div>
-    </div>
-  </form>
+  </div>
 </template>
 
 <script>

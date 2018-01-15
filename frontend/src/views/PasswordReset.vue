@@ -1,29 +1,40 @@
 <template>
-  <form class="password-reset"
-        v-on:submit.prevent="resetPassword">
-    <h2 class="form-register-heading">Réinitialisation de mot de passe</h2>
+  <div class="app flex-row align-items-center">
+    <div class="container">
+      <b-row class="justify-content-center">
+        <b-col md="6" sm="8">
+          <b-card-group>
+            <b-card no-body class="p-4">
+              <b-card-body>
+                <form v-on:submit.prevent="resetPassword">
+                  <h2>
+                    Mot de passe oublié
+                  </h2>
 
-    <div class="form-group">
-      <label for="email"
-             class="sr-only">
-        Email
-      </label>
-      <input id="email"
-             class="form-control"
-             type="email"
-             placeholder="Email"
-             autofocus
-             v-model="email">
+                  <div class="input-group mb-3">
+                    <span class="input-group-addon">
+                      <icon name="envelope"></icon>
+                    </span>
+                    <input type="email"
+                           class="form-control"
+                           placeholder="Email"
+                           autofocus
+                           v-model="email" />
+                  </div>
+
+                  <b-button variant="primary"
+                            type="submit"
+                            block>
+                    Réinitialiser mon mot de passe
+                  </b-button>
+                </form>
+              </b-card-body>
+            </b-card>
+          </b-card-group>
+        </b-col>
+      </b-row>
     </div>
-    <div class="form-group row">
-      <div class="col">
-        <button class="btn btn-primary"
-                type="submit">
-          Réinitialiser mon mot de passe
-        </button>
-      </div>
-    </div>
-  </form>
+  </div>
 </template>
 
 <script>

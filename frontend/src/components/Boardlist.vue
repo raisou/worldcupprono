@@ -1,24 +1,30 @@
 <template>
-  <div class="card">
-    <div class="card-header text-muted">
-      Tableaux
-    </div>
-    <b-list-group>
-      <b-list-group-item v-for="board in boards"
-                         :key="board.id"
-                         @click="redirect(board)">
-        <span v-if="board.is_owner">+</span>
-        {{board.name}}
-      </b-list-group-item>
-      <b-list-group-item>
-        <b-form-input
-          type="text"
-          placeholder="Ajouter un tableau"
-          v-model="newBoard"
-          @keyup.enter.native="createBoard">
-        </b-form-input>
-      </b-list-group-item>
-    </b-list-group>
+  <div class="sidebar">
+    <nav class="sidebar-nav">
+      <ul class="nav">
+        <li class="nav-title">
+          Tableaux
+        </li>
+        <li class="nav-item"
+            v-for="board in boards"
+            :key="board.id">
+          <router-link class="nav-link"
+                       :to="{ name: 'board', params: { boardId: board.id } }">
+            <span v-if="board.is_owner">+</span>
+            {{ board.name }}
+          </router-link>
+        </li>
+        <div class="sidebar-form">
+          <div class="form-group">
+          <input type="text"
+                 class="form-control"
+                 placeholder="Créer un tableau"
+                 v-model="newBoard"
+                 @keyup.enter="createBoard" />
+          </div>
+        </div>
+      </ul>
+    </nav>
   </div>
 </template>
 
@@ -39,9 +45,6 @@
       createBoard: function () {
         this.$store.dispatch('saveBoard', this.newBoard)
         this.newBoard = ''
-      },
-      redirect: function (board) {
-        this.$router.push({ name: 'board', params: { boardId: board.id } })
       }
     },
     beforeMount () {
@@ -49,12 +52,3 @@
     }
   }
 </script>
-
-<style scoped>
-  .card {
-    margin-bottom: 15px;
-  }
-  .list-group-item {
-    border: none;
-  }
-</style>

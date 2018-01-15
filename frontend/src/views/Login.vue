@@ -1,68 +1,65 @@
 <template>
-  <div>
-    <form class="login"
-          v-on:submit.prevent="signIn"
-          v-if="!authenticated">
-      <h2 class="form-signin-heading">Connection</h2>
-
-      <div class="form-group">
-        <label for="username"
-               class="sr-only">
-          Login
-        </label>
-        <input id="username"
-               class="form-control"
-               type="text"
-               placeholder="Login"
-               autofocus
-               v-model="username" />
-      </div>
-      <div class="form-group">
-        <label for="password"
-               class="sr-only">
-          Mot de passe
-        </label>
-        <input id="password"
-               class="form-control"
-               type="password"
-               placeholder="Mot de passe"
-               v-model="password" />
-      </div>
-      <div class="form-group row">
-        <div class="col">
-          <button class="btn btn-primary btn-block"
-                  type="submit">
-            Se connecter
-          </button>
-        </div>
-        <div class="col">
-          <button id="registerButton"
-                  class="btn btn-secondary btn-block"
-                  type="button"
-                  v-on:click="$router.push({name: 'registration'})">
-            S'enregistrer
-          </button>
-        </div>
-      </div>
-      <div class="form-group mb-0">
-        <button id="forgot-password"
-                class="btn btn-link btn-sm p-0"
-                type="button"
-                v-on:click="$router.push({name: 'passwordReset'})">
-          <small>Mot de passe oublé ?</small>
-        </button>
-      </div>
-    </form>
-    <p class="text-center"
-       v-else>
-      Vous êtes déjà connecté
-    </p>
+  <div class="app flex-row align-items-center">
+    <div class="container">
+      <b-row class="justify-content-center">
+        <b-col md="6" sm="8">
+          <b-card-group>
+            <b-card no-body class="p-4">
+              <b-card-body v-if="!authenticated">
+                <form v-on:submit.prevent="signIn">
+                  <h1>Connexion</h1>
+                  <div class="input-group mb-3">
+                    <span class="input-group-addon">
+                      <icon name="user"></icon>
+                    </span>
+                    <input type="text"
+                           class="form-control"
+                           placeholder="Username"
+                           autofocus
+                           v-model="username" />
+                  </div>
+                  <div class="input-group mb-4">
+                    <span class="input-group-addon">
+                      <icon name="lock"></icon>
+                    </span>
+                    <input type="password"
+                           class="form-control"
+                           placeholder="Mot de passe"
+                           v-model="password">
+                  </div>
+                  <b-button variant="primary"
+                            size="sm"
+                            class="px-2"
+                            type="submit">
+                    Se connecter
+                  </b-button>
+                  <b-button variant="secondary"
+                            size="sm"
+                            class="px-2"
+                            v-on:click="$router.push({name: 'registration'})">
+                    S'enregistrer
+                  </b-button>
+                  <b-button variant="link"
+                            class="px-0 text-right"
+                            v-on:click="$router.push({name: 'passwordReset'})">
+                    Mot de passe oublié ?
+                  </b-button>
+                </form>
+              </b-card-body>
+              <b-card-body v-else>
+                Vous êtes déjà connecté
+              </b-card-body>
+            </b-card>
+          </b-card-group>
+        </b-col>
+      </b-row>
+    </div>
   </div>
 </template>
 
 <script>
   import {mapState} from 'vuex'
-  import loginMixin from '../mixins/login'
+  import loginMixin from '@/mixins/login'
 
   export default {
     data () {

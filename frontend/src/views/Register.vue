@@ -1,57 +1,63 @@
 <template>
-  <div>
-    <form class="register"
-          v-on:submit.prevent="register"
-          v-if="!authenticated">
-      <h2 class="form-register-heading">Enregistrement</h2>
+  <div class="app flex-row align-items-center">
+    <div class="container">
+      <b-row class="justify-content-center">
+        <b-col md="6" sm="8">
+          <b-card no-body class="mx-4">
+            <form v-on:submit.prevent="register"
+                  v-if="!authenticated">
+              <b-card-body class="p-4">
+                <h2>
+                  S'enregistrer
+                </h2>
+                <p class="text-muted">Créer votre compte</p>
 
-      <div class="form-group">
-        <label for="username"
-               class="sr-only">
-          Login
-        </label>
-        <input id="username"
-               class="form-control"
-               type="text"
-               placeholder="Login"
-               autofocus
-               v-model="username" />
-      </div>
-      <div class="form-group">
-        <label for="email"
-               class="sr-only">
-          Email
-        </label>
-        <input id="email"
-               class="form-control"
-               type="text"
-               placeholder="Email"
-               v-model="email" />
-      </div>
-      <div class="form-group">
-        <label for="password"
-               class="sr-only">
-          Mot de passe
-        </label>
-        <input id="password"
-               class="form-control"
-               type="password"
-               placeholder="Mot de passe"
-               v-model="password" />
-      </div>
-      <div class="form-group row">
-        <div class="col">
-          <button class="btn btn-primary btn-block"
-                  type="submit">
-            S'enregistrer
-          </button>
-        </div>
-      </div>
-    </form>
-    <p class="text-center"
-       v-else>
-      Vous êtes déjà connecté
-    </p>
+                <div class="input-group mb-3">
+                  <span class="input-group-addon">
+                    <icon name="user"></icon>
+                  </span>
+                  <input type="text"
+                         class="form-control"
+                         placeholder="Username"
+                         autofocus
+                         v-model="username" />
+                </div>
+
+                <div class="input-group mb-3">
+                  <span class="input-group-addon">
+                    <icon name="envelope"></icon>
+                  </span>
+                  <input type="email"
+                         class="form-control"
+                         placeholder="Email"
+                         v-model="email" />
+                </div>
+
+                <div class="input-group mb-3">
+                  <span class="input-group-addon">
+                    <icon name="lock"></icon>
+                  </span>
+                  <input type="password"
+                         class="form-control"
+                         placeholder="Mot de passe"
+                         v-model="password" />
+                </div>
+
+                <b-button variant="primary"
+                          type="submit"
+                          block>
+                  S'enregistrer
+                </b-button>
+              </b-card-body>
+            </form>
+            <b-card-body class="p-4"
+                        v-else>
+              Vous êtes déjà connecté
+            </b-card-body>
+          </b-card>
+        </b-col>
+      </b-row>
+    </div>
   </div>
 </template>
 
