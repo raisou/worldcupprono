@@ -1,8 +1,5 @@
 <template>
   <div class="card">
-    <div class="card-header">
-      Mon compte
-    </div>
     <div class="card-body">
       <div class="float-right">
         <v-gravatar :email="me.email" default-img="mm" />
