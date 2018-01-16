@@ -3,10 +3,8 @@
     <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button" @click.prevent="mobileSidebarToggle">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <b-link class="navbar-brand" to="#">
-      World Cup Prono
-    </b-link>
-    <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" @click.prevent="sidebarToggle">
+    <b-link class="navbar-brand" to="#"></b-link>
+    <button class="navbar-toggler sidebar-toggler d-md-down-none mr-auto" type="button" @click.prevent="sidebarToggle">
       <span class="navbar-toggler-icon"></span>
     </button>
     <b-navbar-nav class="ml-auto">
@@ -14,7 +12,7 @@
         Mes pronos
       </b-nav-item>
       <b-nav-item-dropdown right no-caret>
-        <template slot="button-content">
+        <template slot="button-content" v-if="me.email">
           <v-gravatar class="img-avatar" :email="me.email" default-img="mm" />
         </template>
         <b-dropdown-item @click="redirect('account')">

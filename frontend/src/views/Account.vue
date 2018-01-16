@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card-body">
-      <div class="float-right">
+      <div class="float-right" v-if="me.email">
         <v-gravatar :email="me.email" default-img="mm" />
       </div>
       <h5 class="card-title">Username: {{ me.username }}</h5>
