@@ -8,7 +8,7 @@
 
 
 <script>
-  import Group from '../components/Group.vue'
+  import Group from '@/components/Group.vue'
 
   export default {
     name: 'dashboard',

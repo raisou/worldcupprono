@@ -8,7 +8,8 @@
     </td>
     <td class="text-center">
       <span v-if="match.prono.id || editing">
-        <span @click="edit()"
+        <span class="score"
+              @click="edit()"
               v-if="!editing">
           {{ match.prono.score_domicile }}
         </span>
@@ -19,7 +20,8 @@
                v-if="editing"
                @keyup.enter="updateProno()" />
         -
-        <span @click="edit()"
+        <span class="score"
+              @click="edit()"
               v-if="!editing">
           {{ match.prono.score_visitor }}
         </span>
@@ -110,5 +112,11 @@
 </script>
 
 <style scoped>
-
+  span.score {
+    cursor: pointer;
+    color: #20a8d8;
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-style: dotted;
+  }
 </style>
