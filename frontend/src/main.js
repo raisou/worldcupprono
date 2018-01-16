@@ -1,9 +1,14 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-// icons
+
+// icons import only the one who matters
 import 'vue-awesome/icons/user'
 import 'vue-awesome/icons/lock'
+import 'vue-awesome/icons/edit'
+import 'vue-awesome/icons/star-o'
+import 'vue-awesome/icons/trash-o'
 import 'vue-awesome/icons/envelope'
+import 'vue-awesome/icons/sign-out'
 
 import Vue from 'vue'
 import App from './App'

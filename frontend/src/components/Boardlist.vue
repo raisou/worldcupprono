@@ -5,15 +5,10 @@
         <li class="nav-title">
           Tableaux
         </li>
-        <li class="nav-item"
-            v-for="board in boards"
-            :key="board.id">
-          <router-link class="nav-link"
-                       :to="{ name: 'board', params: { boardId: board.id } }">
-            <span v-if="board.is_owner">+</span>
-            {{ board.name }}
-          </router-link>
-        </li>
+        <board v-for="board in boards"
+               :key="board.id"
+               :board="board">
+        </board>
         <div class="sidebar-form">
           <div class="form-group">
           <input type="text"
@@ -29,6 +24,7 @@
 </template>
 
 <script>
+  import Board from '@/components/Board.vue'
   import {mapState} from 'vuex'
 
   export default {
@@ -38,6 +34,7 @@
         newBoard: ''
       }
     },
+    components: { Board },
     computed: mapState([
       'boards'
     ]),
@@ -52,3 +49,11 @@
     }
   }
 </script>
+
+<style lang="scss">
+  .sidebar .nav-link:hover {
+    background-color: inherit;
+    background-image: linear-gradient(right, transparent, transparent 70%, black 95%, transparent 100%);
+    background-image: -webkit-linear-gradient(right, transparent, transparent 70%, black 95%, transparent 100%);
+  }
+</style>
