@@ -8,3 +8,13 @@ class BoardPermission(permissions.BasePermission):
             return True
 
         return obj.owner == request.user
+
+
+class BoardInvitePermission(permissions.BasePermission):
+
+    def has_object_permission(self, request, view, obj):
+        if obj.users.filter(id=request.user.id).exists() and\
+                obj.owner != request.user:
+            return True
+
+        return True

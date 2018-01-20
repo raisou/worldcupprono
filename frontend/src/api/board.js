@@ -22,6 +22,19 @@ export default {
       this.addAuthorizationHeader(state.token)
     )
   },
+  delete (boardId, state) {
+    return axios.delete(
+      '/api/boards/' + boardId + '/',
+      this.addAuthorizationHeader(state.token)
+    )
+  },
+  leave (boardId, state) {
+    return axios.post(
+      '/api/boards/' + boardId + '/leave/',
+      {},
+      this.addAuthorizationHeader(state.token)
+    )
+  },
   inviteEmails (boardId, emails, state) {
     return axios.post(
       '/api/boards/' + boardId + '/invite/',

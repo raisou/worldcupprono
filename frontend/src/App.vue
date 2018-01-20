@@ -3,6 +3,7 @@
     <div class="app" v-if="authenticated">
       <navbar />
       <message />
+      <confirmationModal />
 
       <div class="app-body">
         <boardlist />
@@ -26,11 +27,12 @@
   import Message from '@/components/Message.vue'
   import Boardlist from '@/components/Boardlist.vue'
   import Breadcrumb from '@/components/Breadcrumb.vue'
+  import ConfirmationModal from '@/components/ConfirmationModal.vue'
   import {mapState} from 'vuex'
 
   export default {
     name: 'app',
-    components: { Navbar, Boardlist, Message, Breadcrumb },
+    components: { Navbar, Boardlist, Message, Breadcrumb, ConfirmationModal },
     computed: {
       list () {
         return this.$route.matched
@@ -56,6 +58,15 @@
   }
 
   .fa-icon {
-    margin: auto;
+    vertical-align: middle;
+    width: 14px;
+  }
+
+  .btn .fa-icon {
+    margin-right: 0.5rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 </style>

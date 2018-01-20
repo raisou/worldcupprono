@@ -19,6 +19,11 @@ export default {
   [types.SET_BOARDS] (state, { boards }) {
     state.boards = boards
   },
+  [types.DELETE_BOARD] (state, { id }) {
+    state.boards = state.boards.filter(board => {
+      return board.id !== id
+    })
+  },
   [types.SET_MATCHS] (state, { matchs }) {
     state.matchs = matchs
   },
@@ -27,5 +32,8 @@ export default {
   },
   [types.CLEAN_MESSAGE] (state) {
     state.message = { text: '', status: 'success' }
+  },
+  [types.SET_CONFIRMATION_MODAL] (state, { modal }) {
+    state.modal = modal
   }
 }

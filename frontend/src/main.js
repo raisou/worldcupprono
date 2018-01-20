@@ -5,7 +5,7 @@
 import 'vue-awesome/icons/user'
 import 'vue-awesome/icons/lock'
 import 'vue-awesome/icons/edit'
-import 'vue-awesome/icons/star-o'
+import 'vue-awesome/icons/certificate'
 import 'vue-awesome/icons/trash-o'
 import 'vue-awesome/icons/envelope'
 import 'vue-awesome/icons/sign-out'

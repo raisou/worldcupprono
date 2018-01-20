@@ -1,8 +1,9 @@
-import User from '../api/user'
-import Auth from '../api/auth'
-import Board from '../api/board'
-import Prono from '../api/prono'
-import router from '../router'
+import User from '@/api/user'
+import Auth from '@/api/auth'
+import Board from '@/api/board'
+import Prono from '@/api/prono'
+import router from '@/router'
+import message from '@/services/message.js'
 import * as types from './mutation-types'
 
 // Auth
@@ -58,6 +59,24 @@ export const getBoards = ({ commit, state }) => {
   return Promise.resolve([])
 }
 
+export const leaveBoard = ({ commit, state }, board) => {
+  Board.leave(board.id, state).then(() => {
+    commit(types.DELETE_BOARD, board)
+    message.success('Vous avez quitté le tableau ' + board.name)
+  }).catch(() => {
+    message.displayGenericError()
+  })
+}
+
+export const deleteBoard = ({ commit, state }, board) => {
+  Board.delete(board.id, state).then(() => {
+    commit(types.DELETE_BOARD, board)
+    message.success('Le tableau ' + board.name + ' a été supprimé')
+  }).catch(() => {
+    message.displayGenericError()
+  })
+}
+
 // Prono
 
 export const getMatchs = ({ commit, state }) => {
@@ -93,4 +112,10 @@ export const displayMessage = ({ commit }, payload) => {
 
 export const cleanMessage = ({ commit }) => {
   commit(types.CLEAN_MESSAGE)
+}
+
+// Modal
+
+export const displayConfirmationModal = ({ commit }, payload) => {
+  commit(types.SET_CONFIRMATION_MODAL, payload)
 }

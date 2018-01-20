@@ -9,14 +9,16 @@
       <b-form @submit.stop.prevent="handleSubmit" novalidate>
         <b-form-input type="text"
                       v-bind:class="{'is-invalid': error}"
-                      placeholder="List d'emails séparés par une virgule"
+                      placeholder="Liste d'emails séparés par une virgule"
                       v-model="emails">
         </b-form-input>
       </b-form>
     </b-modal>
 
-    <button v-b-modal.inviteModal class="btn btn-success btn-sm">
-      Inviter des personnes
+    <button v-b-modal.inviteModal
+            class="btn btn-success btn-sm"
+            title="Inviter des personnes">
+      <icon name="user"></icon>
     </button>
   </span>
 

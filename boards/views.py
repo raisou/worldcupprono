@@ -8,9 +8,9 @@ from django.contrib.auth.models import User
 
 from worldcupprono.permissions import GlobalUserPermission
 
-from .permissions import BoardPermission
-from .serializers import (BoardSerializer, BoardListSerializer)
 from .models import Board
+from .permissions import (BoardPermission, BoardInvitePermission)
+from .serializers import (BoardSerializer, BoardListSerializer)
 
 
 class BoardViewSet(viewsets.ModelViewSet):
@@ -51,5 +51,12 @@ class BoardViewSet(viewsets.ModelViewSet):
                 for user_id in User.objects.filter(email__in=emails)\
                         .values_list('id', flat=True):
                     board.users.add(user_id)
+
+        return Response(status=status.HTTP_200_OK)
+
+    @detail_route(methods=['post'], permission_classes=[BoardInvitePermission])
+    def leave(self, request, pk=None):
+        board = self.get_object()
+        board.users.remove(request.user)
 
         return Response(status=status.HTTP_200_OK)

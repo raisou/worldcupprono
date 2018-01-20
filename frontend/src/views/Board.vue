@@ -3,8 +3,17 @@
     <div class="card-body">
       <div class="text-right">
         <invite-modal :board='board' :fetchData='fetchData'></invite-modal>
-        <button class="btn btn-danger btn-sm">
-          Quitter le tableau
+        <button class="btn btn-danger btn-sm"
+                title="Quitter le tableau"
+                v-if="!board.is_owner"
+                @click="leaveBoard">
+          <icon name="sign-out"></icon>
+        </button>
+        <button class="btn btn-danger btn-sm"
+                title="Supprimer le tableau"
+                v-if="board.is_owner"
+                @click="deleteBoard">
+          <icon name="trash-o"></icon>
         </button>
       </div>
 
@@ -34,9 +43,10 @@
 
 
 <script>
-  import Board from '../api/board'
-  import message from '../services/message'
-  import InviteModal from '../components/InviteModal'
+  import Board from '@/api/board'
+  import message from '@/services/message'
+  import InviteModal from '@/components/InviteModal'
+  import confirmationmodal from '@/services/confirmationmodal.js'
 
   export default {
     name: 'board',
@@ -79,6 +89,12 @@
         .catch(response => {
           message.displayGenericError()
         })
+      },
+      leaveBoard () {
+        confirmationmodal.leaveBoard(this.board)
+      },
+      deleteBoard () {
+        confirmationmodal.deleteBoard(this.board)
       }
     }
   }

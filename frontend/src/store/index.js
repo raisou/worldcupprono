@@ -10,6 +10,7 @@ export default new Vuex.Store({
   state: {
     authenticated: false,
     message: '',
+    modal: '',
     boards: [],
     matchs: [],
     token: null,
