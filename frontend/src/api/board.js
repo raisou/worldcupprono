@@ -22,6 +22,13 @@ export default {
       this.addAuthorizationHeader(state.token)
     )
   },
+  updateName (id, board, state) {
+    return axios.patch(
+      '/api/boards/' + id + '/',
+      board,
+      this.addAuthorizationHeader(state.token)
+    )
+  },
   delete (boardId, state) {
     return axios.delete(
       '/api/boards/' + boardId + '/',
