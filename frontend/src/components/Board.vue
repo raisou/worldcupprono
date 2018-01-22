@@ -7,7 +7,7 @@
       <span v-if="board.is_owner" title="Vous êtes le créateur de ce tableau">
         <icon class="owner" name="certificate"></icon>
       </span>
-      <span v-if="board.is_owner && !editing">
+      <span v-if="!editing">
         {{ board.name }}
       </span>
       <input type="text"
