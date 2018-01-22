@@ -14,6 +14,7 @@
              class="form-control"
              v-model="board.name"
              v-if="board.is_owner && editing"
+             @click.prevent=""
              @keyup.enter="updateName()" />
       <div class="board-icons float-right">
         <icon class="edit"
