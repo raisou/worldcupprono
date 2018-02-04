@@ -38,11 +38,15 @@ DATABASES = {
 DEFAULT_SECRET_KEY = '3zym&07y8+n2xhlg%g*as@poysqn@5-92hqa2-*i+%3mfjm5gi'
 SECRET_KEY = os.getenv("SECRET_KEY", DEFAULT_SECRET_KEY)
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/static/')
+STATIC_ROOT = os.path.join(os.path.dirname(__file__), '../../../../static/')
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media/')
+MEDIA_ROOT = os.path.join(os.path.dirname(__file__), '../../../../media/')
 
 MEDIA_URL = "/media/"
+
+STATICFILES_DIRS = (
+    os.path.join(os.path.dirname(__file__), '../../frontend/dist/static'),
+)
 
 LANGUAGE_CODE = 'fr-FR'
 

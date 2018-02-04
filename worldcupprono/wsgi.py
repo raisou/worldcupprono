@@ -12,7 +12,7 @@ import dotenv
 
 from django.core.wsgi import get_wsgi_application
 
-dotenv.read_dotenv('wcp.conf')
+dotenv.read_dotenv('/home/production/wcp/workspace/conf/wcp.conf')
 
 os.environ.setdefault(
     "DJANGO_SETTINGS_MODULE", "worldcupprono.settings.production")
