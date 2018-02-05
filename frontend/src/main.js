@@ -20,12 +20,10 @@ import 'babel-polyfill'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'flag-icon-css/css/flag-icon.css'
-import lodash from 'lodash'
 import Icon from 'vue-awesome/components/Icon'
 import Gravatar from 'vue-gravatar'
 
 Vue.use(BootstrapVue)
-Vue.prototype.$_ = lodash
 Vue.config.productionTip = false
 Vue.component('icon', Icon)
 Vue.component('v-gravatar', Gravatar)

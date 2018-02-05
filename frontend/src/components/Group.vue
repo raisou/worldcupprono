@@ -30,7 +30,10 @@
     ]),
     methods: {
       filterMatchByGroup: function (matchs) {
-        return this.$_.filter(matchs, { 'stage': this.name })
+        let name = this.name
+        return this.matchs.filter(match => {
+          return match.stage.match(name)
+        })
       }
     }
   }
