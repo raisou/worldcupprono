@@ -82,7 +82,7 @@
     },
     methods: {
       fetchData: function () {
-        Board.get(this.$route.params.boardId, this.$store.state)
+        Board.get(this.$route.params.boardId)
         .then(response => {
           this.board = response.data
         })

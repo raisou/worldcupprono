@@ -1,26 +1,19 @@
 import axios from 'axios'
 
 export default {
-  addAuthorizationHeader (token) {
-    return {
-      headers: { Authorization: `JWT ${token}` }
-    }
+  getMatchs () {
+    return axios.get('/api/matchs/')
   },
-  getMatchs (state) {
-    return axios.get('/api/matchs/', this.addAuthorizationHeader(state.token))
-  },
-  saveProno (prono, state) {
+  saveProno (prono) {
     return axios.post(
       '/api/pronos/',
-      prono,
-      this.addAuthorizationHeader(state.token)
+      prono
     )
   },
-  updateProno (id, prono, state) {
+  updateProno (id, prono) {
     return axios.put(
       '/api/pronos/' + id + '/',
-      prono,
-      this.addAuthorizationHeader(state.token)
+      prono
     )
   }
 }

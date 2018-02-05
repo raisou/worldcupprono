@@ -31,7 +31,7 @@ export const refreshToken = ({ commit, state }) => {
 
 export const getUserInfo = ({ commit, state }) => {
   if (state.authenticated) {
-    User.getUserInfo(state).then(response => {
+    User.getUserInfo().then(response => {
       const user = response.data
       commit(types.SET_USER_INFO, { user })
       return user
@@ -43,14 +43,14 @@ export const getUserInfo = ({ commit, state }) => {
 // Boards
 
 export const saveBoard = ({ commit, state }, board) => {
-  Board.create(board, state).then(() => {
+  Board.create(board).then(() => {
     getBoards({ commit, state })
   })
 }
 
 export const getBoards = ({ commit, state }) => {
   if (state.authenticated) {
-    return Board.all(state).then(response => {
+    return Board.all().then(response => {
       const boards = response.data
       commit(types.SET_BOARDS, { boards })
       return boards
@@ -59,8 +59,8 @@ export const getBoards = ({ commit, state }) => {
   return Promise.resolve([])
 }
 
-export const leaveBoard = ({ commit, state }, board) => {
-  Board.leave(board.id, state).then(() => {
+export const leaveBoard = ({ commit }, board) => {
+  Board.leave(board.id).then(() => {
     commit(types.DELETE_BOARD, board)
     message.success('Vous avez quitté le tableau ' + board.name)
   }).catch(() => {
@@ -68,8 +68,8 @@ export const leaveBoard = ({ commit, state }, board) => {
   })
 }
 
-export const deleteBoard = ({ commit, state }, board) => {
-  Board.delete(board.id, state).then(() => {
+export const deleteBoard = ({ commit }, board) => {
+  Board.delete(board.id).then(() => {
     commit(types.DELETE_BOARD, board)
     message.success('Le tableau ' + board.name + ' a été supprimé')
   }).catch(() => {
@@ -81,7 +81,7 @@ export const deleteBoard = ({ commit, state }, board) => {
 
 export const getMatchs = ({ commit, state }) => {
   if (state.authenticated) {
-    return Prono.getMatchs(state).then(response => {
+    return Prono.getMatchs().then(response => {
       let matchs = []
       response.data.forEach(function (value, key) {
         if (!value.prono) {
@@ -100,8 +100,8 @@ export const getMatchs = ({ commit, state }) => {
   return Promise.resolve([])
 }
 
-export const saveProno = ({ commit, state }, prono) => {
-  Prono.saveProno(prono, state)
+export const saveProno = ({ commit }, prono) => {
+  Prono.saveProno(prono)
 }
 
 // Messages

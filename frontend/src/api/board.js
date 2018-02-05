@@ -1,52 +1,41 @@
 import axios from 'axios'
 
 export default {
-  addAuthorizationHeader (token) {
-    return {
-      headers: { Authorization: `JWT ${token}` }
-    }
+  all () {
+    return axios.get('/api/boards/')
   },
-  all (state) {
-    return axios.get('/api/boards/', this.addAuthorizationHeader(state.token))
-  },
-  create (board, state) {
+  create (board) {
     return axios.post(
       '/api/boards/',
-      {name: board},
-      this.addAuthorizationHeader(state.token)
+      {name: board}
     )
   },
-  get (boardId, state) {
+  get (boardId) {
     return axios.get(
-      '/api/boards/' + boardId + '/',
-      this.addAuthorizationHeader(state.token)
+      '/api/boards/' + boardId + '/'
     )
   },
-  updateName (id, board, state) {
+  updateName (id, board) {
     return axios.patch(
       '/api/boards/' + id + '/',
-      board,
-      this.addAuthorizationHeader(state.token)
+      board
     )
   },
-  delete (boardId, state) {
+  delete (boardId) {
     return axios.delete(
-      '/api/boards/' + boardId + '/',
-      this.addAuthorizationHeader(state.token)
+      '/api/boards/' + boardId + '/'
     )
   },
-  leave (boardId, state) {
+  leave (boardId) {
     return axios.post(
       '/api/boards/' + boardId + '/leave/',
-      {},
-      this.addAuthorizationHeader(state.token)
+      {}
     )
   },
-  inviteEmails (boardId, emails, state) {
+  inviteEmails (boardId, emails) {
     return axios.post(
       '/api/boards/' + boardId + '/invite/',
-      {emails: emails},
-      this.addAuthorizationHeader(state.token)
+      {emails: emails}
     )
   }
 }

@@ -10,6 +10,7 @@ import 'vue-awesome/icons/trash-o'
 import 'vue-awesome/icons/envelope'
 import 'vue-awesome/icons/sign-out'
 
+import axios from 'axios'
 import Vue from 'vue'
 import App from './App'
 import store from './store'
@@ -28,6 +29,8 @@ Vue.prototype.$_ = lodash
 Vue.config.productionTip = false
 Vue.component('icon', Icon)
 Vue.component('v-gravatar', Gravatar)
+
+axios.defaults.headers.common['Authorization'] = 'JWT ' + store.state.token
 
 // filters
 Vue.filter('lower', function (value) {
