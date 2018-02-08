@@ -1,19 +1,22 @@
 import axios from 'axios'
+import {addAuthenticationHeader} from '@/api/jwt.js'
 
 export default {
-  getMatchs () {
-    return axios.get('/api/matchs/')
+  getMatchs (state) {
+    return axios.get('/api/matchs/', addAuthenticationHeader(state.token))
   },
-  saveProno (prono) {
+  saveProno (prono, state) {
     return axios.post(
       '/api/pronos/',
-      prono
+      prono,
+      addAuthenticationHeader(state.token)
     )
   },
-  updateProno (id, prono) {
+  updateProno (id, prono, state) {
     return axios.put(
       '/api/pronos/' + id + '/',
-      prono
+      prono,
+      addAuthenticationHeader(state.token)
     )
   }
 }

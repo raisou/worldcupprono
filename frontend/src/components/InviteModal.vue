@@ -67,7 +67,7 @@
       handleSubmit () {
         let emailsList = this.emails.split(',')
         if (this.validateEmail(emailsList)) {
-          Board.inviteEmails(this.board.id, emailsList)
+          Board.inviteEmails(this.board.id, emailsList, this.$store.state)
           .then(response => {
             this.fetchData()
             // this.$parent.$options.methods.someParentMethod(data)

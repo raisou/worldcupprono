@@ -63,7 +63,8 @@
           this.board.id,
           {
             name: this.board.name
-          }
+          },
+          this.$store.state
         )
         .then(() => {
           this.editing = false

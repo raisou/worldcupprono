@@ -71,7 +71,8 @@
               match: this.match.id,
               score_domicile: this.match.prono.score_domicile,
               score_visitor: this.match.prono.score_visitor
-            }
+            },
+            this.$store.state
           )
           .then(response => {
             this.match.prono = response.data
@@ -91,7 +92,8 @@
               match: this.match.id,
               score_domicile: this.match.prono.score_domicile,
               score_visitor: this.match.prono.score_visitor
-            }
+            },
+            this.$store.state
           )
           .then(response => {
             this.editing = false
