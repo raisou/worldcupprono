@@ -1,7 +1,0 @@
-- model: boards.board
-  pk: 1
-  fields:
-    owner: 1
-    name: test
-    created: '2017-12-30 13:51:10.898440+00:00'
-    users: [1]

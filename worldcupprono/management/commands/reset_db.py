@@ -9,9 +9,6 @@ class Command(BaseCommand):
     BASE_FIXTURES = (
         "sites teams matchs"
     )
-    BASE_FIXTURES_DEMO = (
-        "test_boards test_users"
-    )
 
     def add_arguments(self, parser):
         parser.add_argument(
@@ -45,8 +42,6 @@ class Command(BaseCommand):
         self.log("--- Loading base data ------------------")
         self.loaddata(*self.BASE_FIXTURES.split())
         self.log("--- Loading demo data ------------------")
-        self.loaddata(*self.BASE_FIXTURES_DEMO.split())
-        self.log("--- Done ------------------")
 
     def log(self, message):
         """Displays a message via stdout."""
