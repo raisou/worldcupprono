@@ -7,15 +7,15 @@
         {{ match.team_domicile.name }}
     </td>
     <td class="text-center">
-      <span v-if="match.prono.id || editing">
+      <span v-if="match.prono_id || editing">
         <span class="score"
               @click="edit()"
               v-if="!editing">
-          {{ match.prono.score_domicile }}
+          {{ match.prono_domicile }}
         </span>
         <input type="text"
                size="1"
-               v-model="match.prono.score_domicile"
+               v-model="match.prono_domicile"
                placeholder="0"
                v-if="editing"
                @keyup.enter="updateProno()" />
@@ -23,11 +23,11 @@
         <span class="score"
               @click="edit()"
               v-if="!editing">
-          {{ match.prono.score_visitor }}
+          {{ match.prono_visitor }}
         </span>
         <input type="text"
                size="1"
-               v-model="match.prono.score_visitor"
+               v-model="match.prono_visitor"
                placeholder="0"
                v-if="editing"
                @keyup.enter="updateProno()" />
@@ -65,17 +65,17 @@
         this.editing = true
       },
       updateProno: function () {
-        if (!this.match.prono.id) {
+        if (!this.match.prono_id) {
           Prono.saveProno(
             {
               match: this.match.id,
-              score_domicile: this.match.prono.score_domicile,
-              score_visitor: this.match.prono.score_visitor
+              score_domicile: this.match.prono_domicile,
+              score_visitor: this.match.prono_visitor
             },
             this.$store.state
           )
           .then(response => {
-            this.match.prono = response.data
+            this.match.prono_id = response.data.id
             this.editing = false
           })
           .catch(err => {
@@ -87,11 +87,11 @@
           })
         } else {
           Prono.updateProno(
-            this.match.prono.id,
+            this.match.prono_id,
             {
               match: this.match.id,
-              score_domicile: this.match.prono.score_domicile,
-              score_visitor: this.match.prono.score_visitor
+              score_domicile: this.match.prono_domicile,
+              score_visitor: this.match.prono_visitor
             },
             this.$store.state
           )

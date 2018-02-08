@@ -1,5 +1,6 @@
 from rest_framework import generics
 from rest_framework import viewsets
+from django.db.models import (OuterRef, Subquery)
 
 from worldcupprono.permissions import GlobalUserPermission
 
@@ -26,3 +27,14 @@ class MatchListView(generics.ListAPIView):
         .select_related('team_domicile', 'team_visitor')\
         .prefetch_related('pronos')\
         .order_by('date')
+
+    def get_queryset(self, *args, **kwargs):
+        qs = super(MatchListView, self).get_queryset(*args, **kwargs)
+
+        prono = Prono.objects.filter(
+            user=self.request.user, match=OuterRef('pk'))
+
+        return qs.annotate(
+            prono_id=Subquery(prono.values('id')[:1]),
+            prono_domicile=Subquery(prono.values('score_domicile')[:1]),
+            prono_visitor=Subquery(prono.values('score_visitor')[:1]))

@@ -21,21 +21,17 @@ class PronoSerializer(serializers.ModelSerializer):
 class MatchSerializer(serializers.ModelSerializer):
     team_domicile = TeamSerializer()
     team_visitor = TeamSerializer()
-    prono = serializers.SerializerMethodField()
+    prono_id = serializers.IntegerField(read_only=True)
+    prono_domicile = serializers.IntegerField(read_only=True)
+    prono_visitor = serializers.IntegerField(read_only=True)
     locked = serializers.BooleanField(source='is_locked', read_only=True)
 
     class Meta:
         model = Match
         fields = (
             'id',
-            'prono',
+            'prono_id',
+            'prono_domicile',
+            'prono_visitor',
             'team_domicile',
             'team_visitor', 'stage', 'date', 'locked', 'played')
-
-    def get_prono(self, obj):
-        try:
-            return PronoSerializer(
-                Prono.objects.get(
-                    user=self.context['request'].user, match=obj.id)).data
-        except Prono.DoesNotExist:
-            return

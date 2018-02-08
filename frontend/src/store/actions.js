@@ -84,12 +84,10 @@ export const getMatchs = ({ commit, state }) => {
     return Prono.getMatchs(state).then(response => {
       let matchs = []
       response.data.forEach(function (value, key) {
-        if (!value.prono) {
-          value.prono = {
-            id: null,
-            score_domicile: 0,
-            score_visitor: 0
-          }
+        if (!value.prono_id) {
+          value.prono_id = null
+          value.prono_domicile = 0
+          value.prono_visitor = 0
         }
         matchs.push(value)
       })
