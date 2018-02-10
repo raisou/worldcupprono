@@ -96,6 +96,7 @@
         }
         if (this.password !== this.confirmPassword) {
           message.error('Les mots de passe de correspondent pas')
+          return false
         }
         return true
       },
