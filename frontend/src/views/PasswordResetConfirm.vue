@@ -21,6 +21,16 @@
                            v-model="newPassword" />
                   </div>
 
+                  <div class="input-group mb-3">
+                    <span class="input-group-addon">
+                      <icon name="lock"></icon>
+                    </span>
+                    <input type="password"
+                           class="form-control"
+                           placeholder="Confirmation de mot de passe"
+                           v-model="confirmPassword" />
+                  </div>
+
                   <b-button variant="primary"
                             type="submit"
                             block>
@@ -43,31 +53,41 @@
   export default {
     data () {
       return {
-        newPassword: ''
+        newPassword: '',
+        confirmPassword: ''
       }
     },
     methods: {
-      resetPasswordConfirm () {
+      formIsValid () {
         if (!this.newPassword) {
           message.error('Veuillez entrer un nouveau mot de passe')
-          return
+          return false
         }
-        User.confirmResetPassword({
-          uid: this.$route.params.uid,
-          token: this.$route.params.token,
-          new_password: this.newPassword
-        })
-        .then(() => {
-          message.success('Mot de passe réinitialisé avec succès')
-          this.$router.push({name: 'login'})
-        })
-        .catch(err => {
-          if (err.response.status === 400) {
-            message.error('Lien expiré')
-          } else {
-            message.displayGenericError()
-          }
-        })
+        if (this.newPassword !== this.confirmPassword) {
+          message.error('Les mots de passe de correspondent pas')
+          return false
+        }
+        return true
+      },
+      resetPasswordConfirm () {
+        if (this.formIsValid()) {
+          User.confirmResetPassword({
+            uid: this.$route.params.uid,
+            token: this.$route.params.token,
+            new_password: this.newPassword
+          })
+          .then(() => {
+            message.success('Mot de passe réinitialisé avec succès')
+            this.$router.push({name: 'login'})
+          })
+          .catch(err => {
+            if (err.response.status === 400) {
+              message.error('Lien expiré')
+            } else {
+              message.displayGenericError()
+            }
+          })
+        }
       }
     }
   }
