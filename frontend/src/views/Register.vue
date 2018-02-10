@@ -43,6 +43,16 @@
                          v-model="password" />
                 </div>
 
+                <div class="input-group mb-3">
+                  <span class="input-group-addon">
+                    <icon name="lock"></icon>
+                  </span>
+                  <input type="password"
+                         class="form-control"
+                         placeholder="Confirmation de mot de passe"
+                         v-model="confirmPassword" />
+                </div>
+
                 <b-button variant="primary"
                           type="submit"
                           block>
@@ -63,15 +73,16 @@
 
 <script>
   import {mapState} from 'vuex'
-  import Auth from '../api/auth'
-  import message from '../services/message'
+  import Auth from '@/api/auth'
+  import message from '@/services/message'
 
   export default {
     data () {
       return {
         username: '',
         email: '',
-        password: ''
+        password: '',
+        confirmPassword: ''
       }
     },
     computed: mapState([
@@ -79,9 +90,12 @@
     ]),
     methods: {
       formIsValid () {
-        if (!this.username || !this.email || !this.password) {
+        if (!this.username || !this.email || !this.password || !this.confirmPassword) {
           message.error('Tous les champs sont obligatoires')
           return false
+        }
+        if (this.password !== this.confirmPassword) {
+          message.error('Les mots de passe de correspondent pas')
         }
         return true
       },
@@ -95,6 +109,7 @@
             this.username = ''
             this.email = ''
             this.password = ''
+            this.confirmPassword = ''
           })
           .catch(err => {
             if (err.response && err.response.status === 400) {
