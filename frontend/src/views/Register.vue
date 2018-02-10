@@ -113,7 +113,11 @@
           })
           .catch(err => {
             if (err.response && err.response.status === 400) {
-              message.error(err.response.data.non_field_errors[0])
+              for (var prop in err.response.data) {
+                err.response.data[prop].forEach(function (value, key) {
+                  message.error(value)
+                })
+              }
             } else {
               message.displayGenericError()
             }
