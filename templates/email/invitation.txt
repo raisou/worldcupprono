@@ -1,0 +1,11 @@
+Bonjour,
+
+"{{ invitation.source.username|capfirst }}" vous invite à faire vos pronostiques pour la coupe du monde 2018 et à vous confronter à lui dans le tableau "{{ invitation.board.name }}".
+
+Pour accepter son invitation veuillez suivre le lien suivant:
+{{ protocol }}://{{ site.domain }}/invitation-accept/{{ invitation.board.id }}/{{ invitation.token }}/
+
+Attention, si une étape d'inscription est nécessaire, vous devrez vous inscrire avec le même email pour que cette invitation soit effective.
+
+Cordialement,
+L'équipe du site {{ site.name }}

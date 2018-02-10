@@ -4,6 +4,7 @@ from rest_framework import routers
 
 from boards.views import BoardViewSet
 from pronos.views import (MatchListView, PronoViewSet)
+from invitations.views import InvitationViewSet
 
 
 # -- REST Router
@@ -11,6 +12,7 @@ from pronos.views import (MatchListView, PronoViewSet)
 router = routers.DefaultRouter()
 router.register(r'boards', BoardViewSet, base_name='boards')
 router.register(r'pronos', PronoViewSet, base_name='pronos')
+router.register(r'invitations', InvitationViewSet, base_name='invitations')
 
 urlpatterns = [
     url(r'^', include(router.urls)),

@@ -2,7 +2,11 @@
   <div class="card" >
     <div class="card-body">
       <div class="text-right">
-        <invite-modal :board='board' :fetchData='fetchData'></invite-modal>
+        <invite-modal :board='board'
+                      :fetchData='fetchData'
+                      v-if="board.is_owner">
+
+        </invite-modal>
         <button class="btn btn-danger btn-sm"
                 title="Quitter le tableau"
                 v-if="!board.is_owner"

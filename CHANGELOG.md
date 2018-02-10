@@ -1,5 +1,8 @@
 ### Current
 
+Features:
+  - Add initial invitation management
+
 Enhancement:
   - Rework match display and responsibity
   - Ensure registration email unicity

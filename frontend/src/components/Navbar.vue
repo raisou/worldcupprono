@@ -8,6 +8,9 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <b-navbar-nav class="ml-auto">
+      <b-nav-item @click="redirect('invitations')">
+        Invitations
+      </b-nav-item>
       <b-nav-item class="px-3" @click="redirect('dashboard')">
         Mes pronos
       </b-nav-item>

@@ -14,6 +14,7 @@ export default new Vuex.Store({
     boards: [],
     matchs: [],
     token: null,
+    invitations: [],
     me: {
       email: null,
       id: null,

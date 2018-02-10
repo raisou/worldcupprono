@@ -35,5 +35,13 @@ export default {
   },
   [types.SET_CONFIRMATION_MODAL] (state, { modal }) {
     state.modal = modal
+  },
+  [types.SET_INVITATIONS] (state, { invitations }) {
+    state.invitations = invitations
+  },
+  [types.REMOVE_INVITATION] (state, { invitationId }) {
+    state.invitations = state.invitations.filter(invitation => {
+      return invitation.id !== invitationId
+    })
   }
 }

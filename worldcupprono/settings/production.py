@@ -54,7 +54,8 @@ TIME_ZONE = 'Europe/Paris'
 
 SITE_ID = os.environ.get("SITE_ID", 1)
 
-if literal_eval(os.getenv("ENABLE_HTTPS", "True")):
+ENABLE_HTTPS = literal_eval(os.getenv("ENABLE_HTTPS", "True"))
+if ENABLE_HTTPS:
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
     SECURE_HSTS_SECONDS = 31536000  # 1 year

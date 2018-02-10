@@ -2,6 +2,7 @@ import User from '@/api/user'
 import Auth from '@/api/auth'
 import Board from '@/api/board'
 import Prono from '@/api/prono'
+import Invitation from '@/api/invitation'
 import router from '@/router'
 import message from '@/services/message.js'
 import * as types from './mutation-types'
@@ -100,6 +101,58 @@ export const getMatchs = ({ commit, state }) => {
 
 export const saveProno = ({ commit, state }, prono) => {
   Prono.saveProno(prono, state)
+}
+
+// invitations
+
+export const getInvitations = ({ commit, state }) => {
+  if (state.authenticated) {
+    return Invitation.all(state).then(response => {
+      const invitations = response.data
+      commit(types.SET_INVITATIONS, { invitations })
+      return invitations
+    })
+  }
+  return Promise.resolve([])
+}
+
+export const acceptInvitation = ({ commit, state }, invitation) => {
+  Invitation.accept(invitation.id, state).then(() => {
+    let invitationId = invitation.id
+    commit(types.REMOVE_INVITATION, { invitationId })
+    message.success("L'invitation a été accepté")
+    getBoards({ commit, state })
+  }).catch(() => {
+    message.displayGenericError()
+  })
+}
+
+export const declineInvitation = ({ commit, state }, invitation) => {
+  Invitation.decline(invitation.id, state).then(() => {
+    let invitationId = invitation.id
+    commit(types.REMOVE_INVITATION, { invitationId })
+    message.success("L'invitation a été ignorée")
+  }).catch(() => {
+    message.displayGenericError()
+  })
+}
+
+export const cancelInvitation = ({ commit, state }, invitation) => {
+  Invitation.cancel(invitation.id, state).then(() => {
+    let invitationId = invitation.id
+    commit(types.REMOVE_INVITATION, { invitationId })
+    message.success("L'invitation a été annulée")
+  }).catch(() => {
+    message.displayGenericError()
+  })
+}
+
+export const resendInvitation = ({ commit, state }, invitation) => {
+  Invitation.resend(invitation.id, state).then(() => {
+    message.success("L'invitation a été renvoyée")
+  }).catch(() => {
+    message.displayGenericError()
+  })
 }
 
 // Messages

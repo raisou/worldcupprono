@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'djoser',
     'boards',
     'pronos',
+    'invitations',
     'worldcupprono'
 ]
 
@@ -146,3 +147,5 @@ SITE_ID = 1
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+ENABLE_HTTPS = False

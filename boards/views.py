@@ -1,3 +1,5 @@
+import logging
+
 from rest_framework import viewsets
 from rest_framework import status
 from rest_framework.response import Response
@@ -6,11 +8,14 @@ from django.core.validators import validate_email, EMPTY_VALUES
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 
+from invitations.models import Invitation
 from worldcupprono.permissions import GlobalUserPermission
 
 from .models import Board
 from .permissions import (BoardPermission, BoardInvitePermission)
 from .serializers import (BoardSerializer, BoardListSerializer)
+
+logger = logging.getLogger(__name__)
 
 
 class BoardViewSet(viewsets.ModelViewSet):
@@ -33,24 +38,31 @@ class BoardViewSet(viewsets.ModelViewSet):
     def invite(self, request, pk=None):
         board = self.get_object()
         emails = request.data['emails']
-
         if emails in EMPTY_VALUES:
             return Response(
                 'Veuillez entrer des emails à valider',
                 status=status.HTTP_400_BAD_REQUEST)
 
+        known_mails = User.objects.values_list('email', flat=True)
+
         for email in emails:
-            try:
-                if email in EMPTY_VALUES or not validate_email(email):
-                    # TODO invitation with hash blabla xd
-                    print('olol')
-            except ValidationError as e:
-                return Response(e, status=status.HTTP_400_BAD_REQUEST)
-            finally:
-                # well now we just add existing user for testing urpose
-                for user_id in User.objects.filter(email__in=emails)\
-                        .values_list('id', flat=True):
-                    board.users.add(user_id)
+            if email in known_mails:
+                Invitation.objects.create(
+                    source=self.request.user,
+                    destination=User.objects.get(email=email),
+                    board=board,
+                    status=Invitation.STATUS_PENDING)
+            else:
+                try:
+                    validate_email(email)
+                except ValidationError as e:
+                    logger.warning(e)
+                else:
+                    Invitation.objects.create(
+                        source=self.request.user,
+                        email=email,
+                        board=board,
+                        status=Invitation.STATUS_PENDING)
 
         return Response(status=status.HTTP_200_OK)
 

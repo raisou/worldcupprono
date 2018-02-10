@@ -9,6 +9,8 @@ import 'vue-awesome/icons/certificate'
 import 'vue-awesome/icons/trash-o'
 import 'vue-awesome/icons/envelope'
 import 'vue-awesome/icons/sign-out'
+import 'vue-awesome/icons/check'
+import 'vue-awesome/icons/times'
 
 import Vue from 'vue'
 import App from './App'

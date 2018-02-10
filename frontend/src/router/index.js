@@ -7,8 +7,10 @@ import Board from '@/views/Board'
 import Account from '@/views/Account'
 import Register from '@/views/Register'
 import Dashboard from '@/views/Dashboard'
+import Invitations from '@/views/Invitations'
 import PasswordReset from '@/views/PasswordReset'
 import UserActivation from '@/views/UserActivation'
+import InvitationAccept from '@/views/InvitationAccept'
 import PasswordResetConfirm from '@/views/PasswordResetConfirm'
 
 Vue.use(Router)
@@ -64,6 +66,18 @@ const router = new Router({
       name: 'board',
       component: Board,
       meta: { label: 'Tableau', requiresAuth: true }
+    },
+    {
+      path: '/invitations/',
+      name: 'invitations',
+      component: Invitations,
+      meta: { label: 'Invitations', requiresAuth: true }
+    },
+    {
+      path: '/invitation-accept/:boardId/:token',
+      name: 'invitationAccept',
+      component: InvitationAccept,
+      meta: { label: 'Accepter invitation', requiresAuth: true }
     },
     {
       path: '*',
