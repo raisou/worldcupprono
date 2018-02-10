@@ -1,6 +1,7 @@
 ### Current
 
 Enhancement:
+  - Rework match display and responsibity
   - Ensure registration email unicity
   - Improve registration feedback
   - Add password reset confirmation password field

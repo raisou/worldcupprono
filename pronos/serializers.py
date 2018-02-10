@@ -25,6 +25,7 @@ class MatchSerializer(serializers.ModelSerializer):
     prono_domicile = serializers.IntegerField(read_only=True)
     prono_visitor = serializers.IntegerField(read_only=True)
     locked = serializers.BooleanField(source='is_locked', read_only=True)
+    date = serializers.DateTimeField(format="%d/%m/%Y %H:%M")
 
     class Meta:
         model = Match
@@ -34,4 +35,6 @@ class MatchSerializer(serializers.ModelSerializer):
             'prono_domicile',
             'prono_visitor',
             'team_domicile',
-            'team_visitor', 'stage', 'date', 'locked', 'played')
+            'team_visitor',
+            'score_domicile',
+            'score_visitor', 'stage', 'date', 'locked', 'played')
