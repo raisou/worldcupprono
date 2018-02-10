@@ -7,3 +7,4 @@ Enhancement:
   - Remove password complexity check
 
 Fix:
+  - Make activation mail french only

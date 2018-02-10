@@ -1,0 +1,17 @@
+{% block subject %}
+Activation de compte sur {{ site_name }}
+{% endblock subject %}
+
+{% block text_body %}
+Vous recevez cet email car vous devez terminer le processus d'activation sur {{ site_name }}.
+
+Veuillez suivre le lien d'activation de compte:
+{{ protocol }}://{{ domain }}/{{ url }}
+
+Merci d'utiliser notre site !
+
+L'équipe {{ site_name }}
+{% endblock text_body %}
+
+{% block html_body %}
+{% endblock html_body %}
