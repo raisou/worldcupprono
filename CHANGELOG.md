@@ -1,6 +1,7 @@
 ### Current
 
 Enhancement:
+  - Ensure registration email unicity
   - Improve registration feedback
   - Add password reset confirmation password field
   - Add registration confirmation password field
