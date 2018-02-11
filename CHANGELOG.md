@@ -1,8 +1,10 @@
-### Current
+### 0.1.1
 
 Enhancements:
   - Add dumb html mail alternative to invitations
 
+Fix:
+  - Update coreui and fix prod build scss
 
 ### 0.1.0
 
