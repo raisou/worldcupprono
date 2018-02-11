@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-from django.core.mail import EmailMessage
+from django.core.mail import EmailMultiAlternatives
 from django.template.loader import get_template
 from django.contrib.auth.models import User
 from django.contrib.sites.models import Site
@@ -45,6 +45,7 @@ class Invitation(models.Model):
 
     def send_invitation_mail(self):
         plaintext = get_template('email/invitation.txt')
+        html = get_template('email/invitation.html')
         site = Site.objects.get_current()
 
         context = {
@@ -58,5 +59,7 @@ class Invitation(models.Model):
         from_email = settings.DEFAULT_FROM_EMAIL
         to = [self.destination.email] if self.destination else [self.email]
         text_content = plaintext.render(context)
-        msg = EmailMessage(subject, text_content, from_email, to)
+        html_content = html.render(context)
+        msg = EmailMultiAlternatives(subject, text_content, from_email, to)
+        msg.attach_alternative(html_content, "text/html")
         msg.send()

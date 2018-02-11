@@ -1,3 +1,9 @@
+### Current
+
+Enhancements:
+  - Add dumb html mail alternative to invitations
+
+
 ### 0.1.0
 
 Features:
