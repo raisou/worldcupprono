@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  postgresql:
+    image: postgres:9.6
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgresql:/var/lib/postgresql
+  app:
+    build: .
+    # well, to keep it running
+    command: tail -f /dev/null
+    working_dir: '/app/'
+    volumes:
+      - .:/app
+      - virtualenv:/env
+    ports:
+      - "8000:8000"
+      - "8080:8080"
+    depends_on:
+      - postgresql
+    container_name: wcp_app
+
+volumes:
+  postgresql:
+  virtualenv:

@@ -1,0 +1,20 @@
+name: wcp
+root: ~/dev/projects/worldcupprono/
+
+# Runs before everything. Use it to start daemons etc.
+pre: docker-compose up -d
+
+# Runs after everything. Use it to attach to tmux with custom options etc.
+post: docker-compose stop
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+pre_window: sleep 5
+
+startup_window: wcp
+
+windows:
+  - wcp:
+      layout: tiled
+      panes:
+        - docker exec -it wcp_app /env/bin/python manage.py runserver 0.0.0.0:8000
+        - docker exec -it wcp_app bash -c 'cd frontend/ && npm run dev'

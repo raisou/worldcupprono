@@ -15,7 +15,10 @@ INSTALLED_APPS += (
 )
 
 MIDDLEWARE_CLASSES += (
+    # use this one if you are debugging ajax request
     'debug_panel.middleware.DebugPanelMiddleware',
+    # use this one for normal debug
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 # for django-debug-toolbar
@@ -27,11 +30,11 @@ SESSION_SAVE_EVERY_REQUEST = True
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'wcp',
-        'USER': 'wcp',
-        'PASSWORD': 'wcp',
-        'HOST': '127.0.0.1',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': '',
+        'HOST': 'postgresql',
         'PORT': '5432',
     }
 }
@@ -49,21 +52,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media/')
 MEDIA_URL = "/media/"
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-# Dev only
-AUTH_PASSWORD_VALIDATORS = []
-
-# dev only for django_extensions
-GRAPH_MODELS = {
-    'all_applications': True,
-    'group_models': True,
-}
-
-# server
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
-# SECURE_HSTS_SECONDS = 31536000  # 1 year
-# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
 SITE_ID = 2
 
